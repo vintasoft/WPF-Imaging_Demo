@@ -1,0 +1,1000 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>  
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <Version>12.2.6.1</Version>
+    <AssemblyName>WpfImagingDemo</AssemblyName>
+    <RootNamespace>WpfImagingDemo</RootNamespace>
+    <StartupObject>WpfImagingDemo.App</StartupObject>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>NETCORE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>NETCORE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="System.IO.Packaging" Version="7.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Vintasoft.Barcode" Version="14.1.11.1" />
+    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.1.11.1" />
+    <PackageReference Include="Vintasoft.Imaging" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Wpf.UI" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Media" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.WebpCodec" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf.UI" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="4.0.0.3" />
+    <PackageReference Include="Vintasoft.WpfTwain" Version="14.0.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CustomControls\AnchorTypeEditorControl.xaml.cs">
+      <DependentUpon>AnchorTypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ColorPanelControl\ColorPanelControl.xaml.cs">
+      <DependentUpon>ColorPanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ColorPickerDialog\ColorPicker.cs">
+    </Compile>
+    <Compile Include="CustomControls\ColorPickerDialog\ColorPickerDialog.xaml.cs">
+      <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ColorPickerDialog\ColorThumb.cs">
+    </Compile>
+    <Compile Include="CustomControls\ColorPickerDialog\ColorUtilities.cs">
+    </Compile>
+    <Compile Include="CustomControls\ColorPickerDialog\HsvColor.cs">
+    </Compile>
+    <Compile Include="CustomControls\ColorPickerDialog\SpectrumSlider.cs">
+    </Compile>
+    <Compile Include="CustomControls\FontFamilySelector.xaml.cs">
+      <DependentUpon>FontFamilySelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\PaddingFEditorControl.xaml.cs">
+      <DependentUpon>PaddingFEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\SimpleColorPicker.xaml.cs">
+      <DependentUpon>SimpleColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ThicknessEditorControl.xaml.cs">
+      <DependentUpon>ThicknessEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\TreeViewSearchControl.xaml.cs">
+      <DependentUpon>TreeViewSearchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ValueEditorControl.xaml.cs">
+      <DependentUpon>ValueEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ActionProgressWindow.xaml.cs">
+      <DependentUpon>ActionProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\DicomAssemblyLoader.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\DocxAssemblyLoader.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\Jbig2AssemblyLoader.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\Jpeg2000AssemblyLoader.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\PdfAnnotationsAssemblyLoader.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\RawAssemblyLoader.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\CodecsFileFilters.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\BmpEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>BmpEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\GifEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>GifEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\JpegEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>JpegEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\PbmEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>PbmEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\PngEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>PngEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\SvgEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>SvgEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\TgaEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>TgaEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\TiffEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>TiffEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\WebpEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>WebpEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\ImagingEncoderFactory.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jbig2EncoderSettingsWindow.xaml.cs">
+      <DependentUpon>Jbig2EncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jpeg2000EncoderSettingsWindow.xaml.cs">
+      <DependentUpon>Jpeg2000EncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfCompressionControl.xaml.cs">
+      <DependentUpon>PdfCompressionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfEncoderSettingsWindow.xaml.cs">
+      <DependentUpon>PdfEncoderSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\PluginsEncoderFactory.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ColorManagementHelper.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ColorManagement\ColorManagementSettingsWindow.xaml.cs">
+      <DependentUpon>ColorManagementSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ColorManagement\ColorTransformSetEditorWindow.xaml.cs">
+      <DependentUpon>ColorTransformSetEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\CompositeRenderingSettingsWindow.xaml.cs">
+      <DependentUpon>CompositeRenderingSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\CreateNewImageWindow.xaml.cs">
+      <DependentUpon>CreateNewImageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\DocumentLayoutSettingsDialog.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\DocumentLayoutSettingsEditorControl.xaml.cs">
+      <DependentUpon>DocumentLayoutSettingsEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\DocxLayoutSettingsDialog.xaml.cs">
+      <DependentUpon>DocxLayoutSettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\ImageCollectionDocxLayoutSettingsManager.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\ImageCollectionLayoutSettingsManager.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\ImageCollectionXlsxLayoutSettingsManager.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\PageLayoutSettingsControl.xaml.cs">
+      <DependentUpon>PageLayoutSettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\XlsxLayoutSettingsDialog.xaml.cs">
+      <DependentUpon>XlsxLayoutSettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\XlsxPageLayoutSettingsTypeEditorControl.xaml.cs">
+      <DependentUpon>XlsxPageLayoutSettingsTypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentPasswordWindow.xaml.cs">
+      <DependentUpon>DocumentPasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Fonts\CustomFontProgramsController.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Fonts\FontProgramsTools.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\ImageViewerToolbar.xaml.cs">
+      <DependentUpon>ImageViewerToolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\PageIndexChangedEventArgs.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageAppearanceSettingsWindow.xaml.cs">
+      <DependentUpon>ImageAppearanceSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementAddWindow.xaml.cs">
+      <DependentUpon>ImageRenderingRequirementAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementsWindow.xaml.cs">
+      <DependentUpon>ImageRenderingRequirementsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageViewerSettingsWindow.xaml.cs">
+      <DependentUpon>ImageViewerSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ImagingEnvironmentMaxThreadsWindow.xaml.cs">
+      <DependentUpon>ImagingEnvironmentMaxThreadsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\Dicom\AddDicomDataElementWindow.xaml.cs">
+      <DependentUpon>AddDicomDataElementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\Dicom\DicomDataElementMetadataConverter.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\Dicom\DicomMetadataEditorWindow.xaml.cs">
+      <DependentUpon>DicomMetadataEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\Dicom\DicomMetadataTreeView.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\MetadataEditorWindow.xaml.cs">
+      <DependentUpon>MetadataEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\MetadataTreeView.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\MethodExecutor.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\Tiff\AddTiffTagWindow.xaml.cs">
+      <DependentUpon>AddTiffTagWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\MetadataEditor\Tiff\TiffTagMetadataConverter.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\PaletteWindow.xaml.cs">
+      <DependentUpon>PaletteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\PropertyGridWindow.xaml.cs">
+      <DependentUpon>PropertyGridWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\RenderingSettingsWindow.xaml.cs">
+      <DependentUpon>RenderingSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Resources\DemosResourcesManager.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsWindow.xaml.cs">
+      <DependentUpon>ThumbnailViewerSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\TypeEditorRegistrator\ImagingTypeEditorRegistrator.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\UndoManager\WpfUndoManagerHistoryWindow.xaml.cs">
+      <DependentUpon>WpfUndoManagerHistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\UndoManager\WpfUndoManagerSettingsWindow.xaml.cs">
+      <DependentUpon>WpfUndoManagerSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\Actions\NoneAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\Actions\SeparatorToolBarAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\Actions\VisualToolAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualToolsToolBar.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\CustomVisualTools\CustomVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ImageProcessingVisualTools\Actions\OverlayImageToolAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ImageProcessingVisualTools\ImageProcessingVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\MeasurementVisualTools\Actions\ImageMeasureToolAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\MeasurementVisualTools\Actions\ImageMeasureToolUnitsOfMeasureAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\MeasurementVisualTools\MeasurementVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Actions\CustomSelectionAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Actions\CustomSelectionRegionTypeAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Actions\RectangularSelectionAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\SelectionVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ZoomVisualTools\Actions\MagnifierToolAction.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ZoomVisualTools\ZoomVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualTools\ImageViewerMapSettingsWindow.xaml.cs">
+      <DependentUpon>ImageViewerMapSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualTools\WpfMagnifierToolSettingsWindow.xaml.cs">
+      <DependentUpon>WpfMagnifierToolSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualTools\WpfScrollPages.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPreviewWindow.xaml.cs">
+      <DependentUpon>WebcamPreviewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPropertiesUI\DirectShowCameraControlPropertiesControl.xaml.cs">
+      <DependentUpon>DirectShowCameraControlPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPropertiesUI\DirectShowImageQualityPropertiesControl.xaml.cs">
+      <DependentUpon>DirectShowImageQualityPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPropertiesUI\DirectShowWebcamPropertiesWindow.xaml.cs">
+      <DependentUpon>DirectShowWebcamPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\Webcam\WebcamSelectionWindow.xaml.cs">
+      <DependentUpon>WebcamSelectionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Twain\SelectDeviceManagerModeWindow.xaml.cs">
+      <DependentUpon>SelectDeviceManagerModeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Twain\WpfSimpleTwainManager.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode\DemosTools.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode\WpfAboutBoxBaseWindow.xaml.cs">
+      <DependentUpon>WpfAboutBoxBaseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfColorGradientBinarizationWindow.xaml.cs">
+      <DependentUpon>WpfColorGradientBinarizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfReplaceColorGradientWindow.xaml.cs">
+      <DependentUpon>WpfReplaceColorGradientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeReaderTools\BarcodeReaderToolActionFactory.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\BarcodeWriterToolAction.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\WpfBarcodeWriterSettingsControl.xaml.cs">
+      <DependentUpon>WpfBarcodeWriterSettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\BarcodeWriterToolActionFactory.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualTools\BarcodeReaderTool\WpfBarcodeReaderTool.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualTools\BarcodeWriterTool\InteractionButton.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualTools\BarcodeWriterTool\InteractionButtonPanel.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualTools\BarcodeWriterTool\WpfBarcodeWriterTool.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeReaderTools\Actions\BarcodeReaderToolAction.cs" />
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeReaderTools\Actions\Dialogs\WpfBarcodeReaderSettingsControl.xaml.cs">
+      <DependentUpon>WpfBarcodeReaderSettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeReaderTools\Actions\Dialogs\BarcodeReaderToolWindow.xaml.cs">
+      <DependentUpon>BarcodeReaderToolWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\BarcodeWriterToolWindow.xaml.cs">
+      <DependentUpon>BarcodeWriterToolWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\GetSizeWindow.xaml.cs">
+      <DependentUpon>GetSizeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\GS1ValueEditorWindow.xaml.cs">
+      <DependentUpon>GS1ValueEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Base Commands\WpfChangePixelFormatWindow.xaml.cs">
+      <DependentUpon>WpfChangePixelFormatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Base Commands\WpfFillImageWindow.xaml.cs">
+      <DependentUpon>WpfFillImageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Base Commands\WpfResampleWindow.xaml.cs">
+      <DependentUpon>WpfResampleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Base Commands\WpfResizeCanvasWindow.xaml.cs">
+      <DependentUpon>WpfResizeCanvasWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Base Commands\WpfResizeWindow.xaml.cs">
+      <DependentUpon>WpfResizeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\ColorTransformWindow.xaml.cs">
+      <DependentUpon>ColorTransformWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfAdaptiveBinarizeWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfAlphaChannelWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfBinarizeWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfBrightnessContrastWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfColorBlendWindow.xaml.cs">
+      <DependentUpon>WpfColorBlendWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfGammaWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfHueSaturationLuminanceWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfLevelsWindow.xaml.cs">
+      <DependentUpon>WpfLevelsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfPosterizeWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Color Commands\WpfReplaceColorWindow.xaml.cs">
+      <DependentUpon>WpfReplaceColorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Common Forms\WpfFiveParamsConfigWindow.xaml.cs">
+      <DependentUpon>WpfFiveParamsConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Common Forms\WpfOneParamConfigWindow.xaml.cs">
+      <DependentUpon>WpfOneParamConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Common Forms\WpfImageProcessingParameter.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Common Forms\WpfPropertyGridConfigWindow.xaml.cs">
+      <DependentUpon>WpfPropertyGridConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Common Forms\WpfSixParamsConfigWindow.xaml.cs">
+      <DependentUpon>WpfSixParamsConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Common Forms\WpfThreeParamsConfigWindow.xaml.cs">
+      <DependentUpon>WpfThreeParamsConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Common Forms\WpfTwoParamsConfigWindow.xaml.cs">
+      <DependentUpon>WpfTwoParamsConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Document Commands\ColorNoiseClearWindow.xaml.cs">
+      <DependentUpon>ColorNoiseClearWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Document Commands\WpfAutoTextInvertWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Document Commands\WpfBorderRemovalWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Document Commands\WpfHalftoneRemovalWindow.xaml.cs">
+      <DependentUpon>WpfHalftoneRemovalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Document Commands\WpfSmoothingWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Effects Commands\WpfOilPaintingWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Effects Commands\WpfBevelEdgeWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Effects Commands\WpfMosaicWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Effects Commands\WpfMotionBlurWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Effects Commands\WpfPixelateWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Effects Commands\WpfRedEyeRemovalWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Effects Commands\WpfTileReflectionWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\FFT Commands\WpfFrequencySpectrumVisualizerWindow.xaml.cs">
+      <DependentUpon>WpfFrequencySpectrumVisualizerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\FFT Commands\WpfImageSharpeningWindow.xaml.cs">
+      <DependentUpon>WpfImageSharpeningWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\FFT Commands\WpfImageSmoothingWindow.xaml.cs">
+      <DependentUpon>WpfImageSmoothingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfBlurWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfCannyEdgeDetectorWindow.xaml.cs">
+      <DependentUpon>WpfCannyEdgeDetectorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfDilateWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfEmbossWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfErodeWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfGaussianBlurWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfMaximumWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfMeanWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfMedianWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfMidpointWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfMinimumWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Filters Commands\WpfSharpenWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Info Commands\WpfGetHistogramWindow.xaml.cs">
+      <DependentUpon>WpfGetHistogramWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Info Commands\WpfIsImageBlackWhiteWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Info Commands\WpfIsImageGrayscaleWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Info Commands\WpfGetImageColorDepthWindow.cs" />
+    <Compile Include="Dialogs\ImageProcessing\Transforms Commands\WpfImageScalingWindow.xaml.cs">
+      <DependentUpon>WpfImageScalingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\Transforms Commands\WpfRotateWindow.xaml.cs">
+      <DependentUpon>WpfRotateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImageProcessing\WpfImageProcessingPreviewInViewer.cs" />
+    <Compile Include="Dialogs\WpfPasteImageWindow.xaml.cs">
+      <DependentUpon>WpfPasteImageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\WpfDirectPixelAccessWindow.xaml.cs">
+      <DependentUpon>WpfDirectPixelAccessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\WpfShowAnimationWindow.xaml.cs">
+      <DependentUpon>WpfShowAnimationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Image processing\WpfImageProcessingCommandExecutor.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualTools\BarcodeReaderTool\Resources\BarcodeScanner.cur" />
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualTools\BarcodeWriterTool\Resources\DrawBarcodeImage.png" />
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualTools\BarcodeWriterTool\Resources\RefreshBarcodeImage.png" />
+    <None Include="DefaultCMYK.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DefaultRGB.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Page Include="CustomControls\AnchorTypeEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\ColorPanelControl\ColorPanelControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\ColorPickerDialog\ColorPickerDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\FontFamilySelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\NumericUpDown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\PaddingFEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\SimpleColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\ThicknessEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\TreeViewSearchControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\ValueEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ActionProgressWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\BmpEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\GifEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\JpegEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\PbmEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\PngEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\SvgEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\TgaEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\TiffEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\WebpEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jbig2EncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jpeg2000EncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfCompressionControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfEncoderSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ColorManagement\ColorManagementSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ColorManagement\ColorTransformSetEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\CompositeRenderingSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\CreateNewImageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\DocumentLayoutSettingsEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\DocxLayoutSettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\PageLayoutSettingsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\XlsxLayoutSettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\XlsxPageLayoutSettingsTypeEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentPasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\ImageViewerToolbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageAppearanceSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementAddWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ImageViewer\ImageViewerSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ImagingEnvironmentMaxThreadsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\MetadataEditor\Dicom\AddDicomDataElementWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\MetadataEditor\Dicom\DicomMetadataEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\MetadataEditor\MetadataEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\MetadataEditor\Tiff\AddTiffTagWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\PaletteWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\PropertyGridWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\RenderingSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\UndoManager\WpfUndoManagerHistoryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\UndoManager\WpfUndoManagerSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualTools\ImageViewerMapSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualTools\WpfMagnifierToolSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPreviewWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPropertiesUI\DirectShowCameraControlPropertiesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPropertiesUI\DirectShowImageQualityPropertiesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Webcam\WebcamPropertiesUI\DirectShowWebcamPropertiesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\Webcam\WebcamSelectionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Twain\SelectDeviceManagerModeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode\WpfAboutBoxBaseWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Color Commands\WpfColorGradientBinarizationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Color Commands\WpfReplaceColorGradientWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeReaderTools\Actions\Dialogs\WpfBarcodeReaderSettingsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeReaderTools\Actions\Dialogs\BarcodeReaderToolWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\BarcodeWriterToolWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\GetSizeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\GS1ValueEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Base Commands\WpfChangePixelFormatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Base Commands\WpfFillImageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Base Commands\WpfResampleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Base Commands\WpfResizeCanvasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Base Commands\WpfResizeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Color Commands\ColorTransformWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Color Commands\WpfColorBlendWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Color Commands\WpfLevelsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Color Commands\WpfReplaceColorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Common Forms\WpfFiveParamsConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Common Forms\WpfOneParamConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Common Forms\WpfPropertyGridConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Common Forms\WpfSixParamsConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Common Forms\WpfThreeParamsConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Common Forms\WpfTwoParamsConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Document Commands\ColorNoiseClearWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Document Commands\WpfHalftoneRemovalWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\FFT Commands\WpfFrequencySpectrumVisualizerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\FFT Commands\WpfImageSharpeningWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\FFT Commands\WpfImageSmoothingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Filters Commands\WpfCannyEdgeDetectorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Info Commands\WpfGetHistogramWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Transforms Commands\WpfImageScalingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImageProcessing\Transforms Commands\WpfRotateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\WpfPasteImageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\WpfDirectPixelAccessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\WpfShowAnimationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Actions\Dialogs\WpfBarcodeWriterSettingsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="App.ico" />
+    <Content Include="Resources\DotNet7\VintasoftTwainService.exe">
+      <Link>VintasoftTwainService.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DotNet7\VintasoftTwainService.dll">
+      <Link>VintasoftTwainService.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DotNet7\VintasoftTwainService.runtimeconfig.json">
+      <Link>VintasoftTwainService.runtimeconfig.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\Processing_Base.png" />
+    <Resource Include="Resources\Processing_Channels.png" />
+    <Resource Include="Resources\Processing_Color.png" />
+    <Resource Include="Resources\Processing_Document.png" />
+    <Resource Include="Resources\Processing_Effects.png" />
+    <Resource Include="Resources\Processing_Filters.png" />
+    <Resource Include="Resources\Processing_Info.png" />
+    <Resource Include="Resources\Processing_Transform.png" />
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeReaderTools\Resources\BarcodeReaderTool.png" />
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\BarcodeWriterTools\Resources\BarcodeWriterTool.png" />
+    <Resource Include="directives.txt" />
+    <Resource Include="Resources\Processing_FFT.png" />
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\camera.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\navigate_beginning.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\navigate_end.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\navigate_left.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\navigate_right.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\open.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\printer.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\save.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\scanner.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\zoom_in.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode.Imaging\ImageViewerToolbar\Resources\zoom_out.png">
+    </Resource>
+    <Resource Include="WpfDemosCommonCode\Resources\VintasoftLogo.png">
+    </Resource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\Resources\None.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\CustomVisualTools\Resources\WpfScrollPagesTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\CustomVisualTools\Resources\WpfSelectionScrollingTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ImageProcessingVisualTools\Resources\WpfCropSelectionTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ImageProcessingVisualTools\Resources\WpfDragDropTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ImageProcessingVisualTools\Resources\WpfOverlayTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ImageProcessingVisualTools\Resources\WpfPanTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\MeasurementVisualTools\Resources\WpfImageMeasureTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Resources\WpfCustomSelectionToolCurves.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Resources\WpfCustomSelectionToolEllipse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Resources\WpfCustomSelectionToolLasso.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Resources\WpfCustomSelectionToolPolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Resources\WpfCustomSelectionToolRectangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\SelectionVisualTools\Resources\WpfRectangularSelectionTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ZoomVisualTools\Resources\WpfMagnifierTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ZoomVisualTools\Resources\WpfZoomPanTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ZoomVisualTools\Resources\WpfZoomSelection.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="WpfDemosCommonCode.Imaging\VisualToolsToolBar\VisualTools\ZoomVisualTools\Resources\WpfZoomTool.png">
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

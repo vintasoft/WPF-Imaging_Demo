@@ -1,0 +1,64 @@
+﻿<Window x:Class="WpfImagingDemo.WpfImageSharpeningWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="Image Sharpening" Height="320" Width="385" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="3,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="29" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <CustomControls:ValueEditorControl x:Name="radiusEditorControl" HorizontalAlignment="Center" ValueHeader="Radius" ValueUnitOfMeasure="Pixels" MinValue="1" MaxValue="50" Step="1" DefaultValue="12" Value="12" Width="353.953" ValueChanged="ValueEditorControl_ValueChanged" DecimalPlaces="2" />
+            <CustomControls:ValueEditorControl x:Name="overlayAlphaEditorControl" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Width="353.953" ValueHeader="Overlay Alpha" MinValue="0.0" MaxValue="1.0" Step="0.01" DefaultValue="1.0" Value="1.0" ValueChanged="ValueEditorControl_ValueChanged" DecimalPlaces="2"/>
+            
+            <Grid Grid.Row="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="210" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.ColumnSpan="3" Grid.Column="0" VerticalAlignment="Center">Blending Mode</Label>
+                <ComboBox Name="blendingModeComboBox" Grid.Column="1" Margin="2" SelectionChanged="blendingModeComboBox_SelectionChanged"/>
+
+            </Grid>
+
+            <Grid Grid.Row="3" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="210" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.ColumnSpan="3" Grid.Column="0" VerticalAlignment="Center">Filter Type</Label>
+                <ComboBox Name="filterTypeComboBox" Grid.Column="1" Margin="2" SelectionChanged="filterTypeComboBox_SelectionChanged"/>
+
+            </Grid>
+
+            <Grid Grid.Row="4" >
+                <CheckBox Name="grayscaleFiltrationCheckBox"  VerticalAlignment="Center" HorizontalAlignment="Left" Checked="grayscaleFiltrationCheckBox_CheckedChanged" Unchecked="grayscaleFiltrationCheckBox_CheckedChanged">Use Grayscale Filtration</CheckBox>
+
+            </Grid>
+
+        </Grid>
+
+        <CheckBox Name="previewCheckBox" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Checked="previewCheckBox_CheckedChanged" Unchecked="previewCheckBox_CheckedChanged">Preview on ImageViewer</CheckBox>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Name="buttonOk" Margin="3" Width="75" Click="buttonOk_Click">OK</Button>
+            <Button Name="cancelButton" Margin="3" Width="75" Click="cancelButton_Click">Cancel</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

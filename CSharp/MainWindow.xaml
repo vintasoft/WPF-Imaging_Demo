@@ -1,0 +1,608 @@
+﻿<Window x:Class="WpfImagingDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
+    xmlns:cc="clr-namespace:WpfImagingDemo"
+    xmlns:widcci="clr-namespace:WpfDemosCommonCode.Imaging"
+    Title="VintaSoft WPF Imaging Demo" Width="880" Height="600"        
+    Loaded="Window_Loaded"
+    KeyUp="Window_KeyUp"
+    Closing="Window_Closing"
+    Closed="Window_Closed" Icon="/WpfImagingDemo;component/App.ico"
+    WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="vsui:ThumbnailImageItem" x:Key="ThumbnailItemStyle">
+            <Setter Property="Border">
+                <Setter.Value>
+                    <Pen Brush="#60000000" Thickness="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ThumbnailPadding" Value="2.5" />
+            <Setter Property="ThumbnailImagePadding" Value="3" />
+            <Setter Property="ThumbnailForeground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                        <GradientStop Color="#30000000" Offset="0.0" />
+                        <GradientStop Color="#D0000000" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ThumbnailBackground" Value="Transparent" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="SelectionBorder">
+                        <Setter.Value>
+                            <Pen Brush="#B08090FF" Thickness="2"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property = "IsSelected" Value="true">
+                    <Setter Property="ThumbnailBackground">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#207080F0" Offset="0.0" />
+                                <GradientStop Color="#B07080F0" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ThumbnailForeground" Value="Transparent"/>
+                    <Setter Property="Border">
+                        <Setter.Value>
+                            <Pen Brush="#D07080FF" Thickness="1"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property = "IsSelected" Value="false"/>
+                        <Condition Property = "HasThumbnailImage" Value="false"/>
+                        <Condition Property = "IsRendering" Value="false"/>
+                        <Condition Property = "IsRendered" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="ThumbnailForeground.Opacity" To="1" Duration="0:0:0" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </MultiTrigger.EnterActions>
+                </MultiTrigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property = "IsSelected" Value="false"/>
+                        <Condition Property = "HasThumbnailImage" Value="false"/>
+                        <Condition Property = "IsRendering" Value="true"/>
+                        <Condition Property = "IsRendered" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property = "ThumbnailBackground">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#10008000" Offset="0.0" />
+                                <GradientStop Color="#30008000" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <MultiTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="ThumbnailForeground.Opacity" From="1" To="0" Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </MultiTrigger.EnterActions>
+                    <MultiTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="ThumbnailImageBrush.Opacity" From="0" To="1" Duration="0:0:0.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </MultiTrigger.ExitActions>
+                </MultiTrigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property = "IsSelected" Value="false"/>
+                        <Condition Property = "HasThumbnailImage" Value="true"/>
+                        <Condition Property = "IsRendering" Value="false"/>
+                        <Condition Property = "IsRendered" Value="true"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ThumbnailBackground">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#10008000" Offset="0.0" />
+                                <GradientStop Color="#30008000" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ThumbnailForeground" Value="Transparent"/>
+                </MultiTrigger>
+                <Trigger Property = "IsFocused" Value="true">
+                    <Setter Property="Border">
+                        <Setter.Value>
+                            <Pen Brush="Black" Thickness="1">
+                                <Pen.DashStyle>
+                                    <DashStyle Dashes="1,2"/>
+                                </Pen.DashStyle>
+                            </Pen>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <BitmapImage x:Key="ProcessingBase" UriSource="Resources/Processing_Base.png" />
+        <BitmapImage x:Key="ProcessingChannels" UriSource="Resources/Processing_Channels.png" />
+        <BitmapImage x:Key="ProcessingColor" UriSource="Resources/Processing_Color.png" />
+        <BitmapImage x:Key="ProcessingDocument" UriSource="Resources/Processing_Document.png" />
+        <BitmapImage x:Key="ProcessingEffects" UriSource="Resources/Processing_Effects.png" />
+        <BitmapImage x:Key="ProcessingFilters" UriSource="Resources/Processing_Filters.png" />
+        <BitmapImage x:Key="ProcessingInfo" UriSource="Resources/Processing_Info.png" />
+        <BitmapImage x:Key="ProcessingTransform" UriSource="Resources/Processing_Transform.png" />
+        <BitmapImage x:Key="ProcessingFFT" UriSource="Resources/Processing_FFT.png" />
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding x:Name="openCommandBinding" Command="{x:Static cc:MainWindow._openCommand}" Executed="openMenuItem_Click" CanExecute="openCommandBinding_CanExecute" />
+        <CommandBinding x:Name="addCommandBinding" Command="{x:Static cc:MainWindow._addCommand}" Executed="addMenuItem_Click" CanExecute="addCommandBinding_CanExecute" />
+        <CommandBinding x:Name="saveAsCommandBinding" Command="{x:Static cc:MainWindow._saveAsCommand}" Executed="saveAsMenuItem_Click"  CanExecute="saveAsCommandBinding_CanExecute"/>
+        <CommandBinding x:Name="closeCommandBinding" Command="{x:Static cc:MainWindow._closeCommand}" Executed="closeMenuItem_Click" CanExecute="closeCommandBinding_CanExecute" />
+        <CommandBinding x:Name="printCommandBinding" Command="{x:Static cc:MainWindow._printCommand}" Executed="printMenuItem_Click" CanExecute="printCommandBinding_CanExecute" />
+        <CommandBinding x:Name="exitCommandBinding" Command="{x:Static cc:MainWindow._exitCommand}" Executed="exitMenuItem_Click" CanExecute="exitCommandBinding_CanExecute" />
+
+        <CommandBinding x:Name="undoCommandBinding" Command="{x:Static cc:MainWindow._undoCommand}" Executed="undoMenuItem_Click" CanExecute="undoCommandBinding_CanExecute" />
+        <CommandBinding x:Name="redoCommandBinding" Command="{x:Static cc:MainWindow._redoCommand}" Executed="redoMenuItem_Click" CanExecute="redoCommandBinding_CanExecute" />
+        <CommandBinding x:Name="copyImageCommandBinding" Command="{x:Static cc:MainWindow._copyImageCommand}" Executed="copyImageMenuItem_Click" CanExecute="copyImageCommandBinding_CanExecute" />
+        <CommandBinding x:Name="pasteImageCommandBinding" Command="{x:Static cc:MainWindow._pasteImageCommand}" Executed="pasteImageMenuItem_Click" CanExecute="pasteImageCommandBinding_CanExecute" />
+
+        <CommandBinding x:Name="rotateClockwiseCommandBinding" Command="{x:Static cc:MainWindow._rotateClockwiseCommand}" Executed="rotateClockwiseMenuItem_Click" CanExecute="rotateClockwiseCommandBinding_CanExecute" />
+        <CommandBinding x:Name="rotateCounterclockwiseCommandBinding" Command="{x:Static cc:MainWindow._rotateCounterclockwiseCommand}" Executed="rotateCounterclockwiseMenuItem_Click" CanExecute="rotateCounterclockwiseCommandBinding_CanExecute" />
+
+        <CommandBinding Command="{x:Static cc:MainWindow._aboutCommand}" Executed="aboutMenuItem_Click" />
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{x:Static cc:MainWindow._openCommand}" Modifiers="CTRL" Key="O" />
+        <KeyBinding Command="{x:Static cc:MainWindow._addCommand}" Modifiers="CTRL+SHIFT" Key="O" />
+        <KeyBinding Command="{x:Static cc:MainWindow._saveAsCommand}" Modifiers="CTRL" Key="S" />
+        <KeyBinding Command="{x:Static cc:MainWindow._closeCommand}" Modifiers="CTRL" Key="W" />
+        <KeyBinding Command="{x:Static cc:MainWindow._printCommand}" Modifiers="CTRL" Key="P" />
+        <KeyBinding Command="{x:Static cc:MainWindow._exitCommand}" Modifiers="ALT" Key="X" />
+
+        <KeyBinding Command="{x:Static cc:MainWindow._undoCommand}" Modifiers="CTRL" Key="Z" />
+        <KeyBinding Command="{x:Static cc:MainWindow._redoCommand}" Modifiers="CTRL" Key="Y" />
+        <KeyBinding Command="{x:Static cc:MainWindow._copyImageCommand}" Modifiers="CTRL" Key="C" />
+        <KeyBinding Command="{x:Static cc:MainWindow._pasteImageCommand}" Modifiers="CTRL" Key="V" />
+
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateClockwiseCommand}" Modifiers="CTRL+SHIFT" Key="OemPlus" />
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateCounterclockwiseCommand}" Modifiers="CTRL+SHIFT" Key="OemMinus" />
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateClockwiseCommand}" Modifiers="CTRL+SHIFT" Key="Add" />
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateCounterclockwiseCommand}" Modifiers="CTRL+SHIFT" Key="Subtract" />
+
+        <KeyBinding Command="{x:Static cc:MainWindow._aboutCommand}"  Key="F1" />
+    </Window.InputBindings>
+
+    <Grid>
+        <DockPanel VerticalAlignment="Stretch">
+            <DockPanel Height="26" VerticalAlignment="Top" DockPanel.Dock="Bottom">
+                <DockPanel>
+                    <Label Name="addingThumbnailsStatusLabel" VerticalAlignment="Center" Visibility="Collapsed">Adding thumbnails:</Label>
+                    <ProgressBar Name="addingThumbnailsProgressBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Collapsed"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Name="imageCollectionSavingStatusLabel" VerticalAlignment="Center" Visibility="Collapsed">Saving images:</Label>
+                    <ProgressBar Name="imageCollectionSavingProgressBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Collapsed"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Name="imageProcessingStatusLabel" VerticalAlignment="Center" Visibility="Collapsed"/>
+                    <Label Name="imageSavingStatusLabel" VerticalAlignment="Center" Visibility="Collapsed">Saving image:</Label>
+                    <ProgressBar Name="imageSavingProgressBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Collapsed" />
+                    <ProgressBar Name="imageProcessingProgressBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Collapsed" />
+                </DockPanel>
+                <DockPanel>
+                    <Label Name="imageLoadingStatusLabel" VerticalAlignment="Center"  Visibility="Collapsed">Loading image:</Label>
+                    <ProgressBar Name="imageLoadingProgressBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Collapsed"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Name="imageInfoLabel" VerticalAlignment="Center" TextAlignment="Right" HorizontalAlignment="Right" Margin="3,0,6,0"/>
+                </DockPanel>
+            </DockPanel>
+            <DockPanel Height="25" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Menu>
+                    <MenuItem Header="File" Name="fileMenuItem">
+                        <MenuItem Header="New..." Name="newToolStripMenuItem" Click="newToolStripMenuItem_Click"/>
+                        <Separator/>
+                        <MenuItem Header="Open... (Ctrl+ O)" Name="openMenuItem" Click="openMenuItem_Click"/>
+                        <MenuItem Header="Add... (Ctrl+ Shift+ O)" Name="addMenuItem" Click="addMenuItem_Click"/>
+                        <MenuItem Header="Layout Settings..." Name="documentLayoutSettingsMenuItem">
+                            <MenuItem Header="DOCX..." Name="docxLayoutSettingsMenuItem" Click="docxLayoutSettingsMenuItem_Click"/>
+                            <MenuItem Header="XLSX..." Name="xlsxLayoutSettingsMenuItem" Click="xlsxLayoutSettingsMenuItem_Click"/>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem Header="Add from Clipboard" Name="addFromClipboardMenuItem" Click="addFromClipboardMenuItem_Click" />
+                        <MenuItem Header="Acquire from Scanner..." Name="acquireFromScannerMenuItem" Click="acquireFromScannerMenuItem_Click" />
+                        <MenuItem Header="Capture from Camera..." Name="captureFromCameraMenuItem" Click="captureFromCameraToolStripMenuItem_Click" />
+                        <Separator />
+                        <MenuItem Header="Save" Name="saveChangesMenuItem" Click="saveChangesMenuItem_Click"/>
+                        <MenuItem Header="Save As... (Ctrl+ S)" Name="saveAsMenuItem" Click="saveAsMenuItem_Click"/>
+                        <MenuItem Header="Save To..." Name="saveToMenuItem" Click="saveToMenuItem_Click" />
+                        <MenuItem Header="Save Current Image To..." Name="saveCurrentImageMenuItem" Click="saveCurrentImageMenuItem_Click" />
+                        <MenuItem Header="Close (Ctrl+ W)" Name="closeMenuItem" Click="closeMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Print... (Ctrl+ P)" Name="printMenuItem" Click="printMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Exit (Alt+ X)" Name="exitMenuItem"  Click="exitMenuItem_Click" />
+                    </MenuItem>
+
+                    <MenuItem Header="Edit" Name="editMenuItem" SubmenuOpened="editMenuItem_SubmenuOpened">
+                        <MenuItem Header="Copy Image (Ctrl+ C)" Name="copyImageMenuItem" Click="copyImageMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Paste Image (Ctrl+ V)" Name="pasteImageMenuItem" Click="pasteImageMenuItem_Click"/>
+                        <MenuItem Header="Set Image from File..." Name="setImageFromFileMenuItem" Click="setImageFromFileMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Insert Image from Clipboard" Name="insertImageFromClipboardMenuItem" Click="insertImageFromClipboardMenuItem_Click"/>
+                        <MenuItem Header="Insert Image From File" Name="insertImageFromFileMenuItem" Click="insertImageFromFileMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Delete Image" Name="deleteImageMenuItem" Click="deleteImageMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Copy" Name="copyMenuItem" Click="copyMenuItem_Click"/>
+                        <MenuItem Header="Cut" Name="cutMenuItem" Click="cutMenuItem_Click"/>
+                        <MenuItem Header="Paste" Name="pasteMenuItem" Click="pasteMenuItem_Click"/>
+                        <MenuItem Header="Delete" Name="deleteMenuItem" Click="deleteMenuItem_Click"/>
+                        <MenuItem Header="Delete All" Name="deleteAllMenuItem" Click="deleteAllMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Edit Document Metadata..." Name="documentMetadataMenuItem" Click="documentMetadataMenuItem_Click"/>
+                        <MenuItem Header="Edit Image Metadata..." Name="editImageMetadataMenuItem" Click="editImageMetadataMenuItem_Click"/>
+                        <MenuItem Header="Edit Image Palette..." Name="editImagePaletteMenuItem" Click="editImagePaletteMenuItem_Click"/>
+                        <MenuItem Header="Edit Image Pixels..." Name="editImagePixelsMenuItem" IsCheckable="True" Click="editImagePixelsMenuItem_Click"/>
+
+                        <Separator />
+                        <MenuItem Header="Enable Undo/Redo" Name="enableUndoRedoMenuItem" Click="enableUndoRedoMenuItem_Click"/>
+                        <MenuItem Header="Keep Undo for Current Image Only" Name="keepUndoForCurrentImageOnlyMenuItem" Click="keepUndoForCurrentImageOnlyMenuItem_Click"/>
+                        <MenuItem Header="Undo" HeaderStringFormat="{}{0} (Ctrl+ Z)"  Name="undoMenuItem" Click="undoMenuItem_Click" />
+                        <MenuItem Header="Redo" HeaderStringFormat="{}{0} (Ctrl+ Y)" Name="redoMenuItem" Click="redoMenuItem_Click"/>
+                        <MenuItem Header="Undo/Redo Settings..." Name="undoRedoSettingsMenuItem" Click="undoRedoSettingsMenuItem_Click"/>
+                        <MenuItem Header="Show History for Displayed Images" Name="showHistoryForDisplayedImagesMenuItem" IsChecked="True" Click="showHistoryForDisplayedImagesMenuItem_Click" />
+                        <MenuItem Header="History Dialog..." Name="historyDialogMenuItem" Click="historyDialogMenuItem_Click" />
+                    </MenuItem>
+
+                    <MenuItem Header="View" Name="viewMenuItem">
+                        <MenuItem Header="Visual Tools" Name="visualToolsMenuItem" />
+                        <Separator />
+                        <MenuItem Header="Thumbnail Viewer Settings..." Name="thumbnailViewerSettingsMenuItem" Click="thumbnailViewerSettingsMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Image Display Mode">
+                            <MenuItem Header="Single Page" Name="singlePageMenuItem" Click="ImageDisplayMode_Click"/>
+                            <MenuItem Header="Two Columns" Name="twoColumnsMenuItem" Click="ImageDisplayMode_Click"/>
+                            <MenuItem Header="Single Continuous Row" Name="singleContinuousRowMenuItem" Click="ImageDisplayMode_Click"/>
+                            <MenuItem Header="Single Continuous Column" Name="singleContinuousColumnMenuItem" Click="ImageDisplayMode_Click"/>
+                            <MenuItem Header="Two Continuous Rows" Name="twoContinuousRowsMenuItem" Click="ImageDisplayMode_Click"/>
+                            <MenuItem Header="Two Continuous Columns" Name="twoContinuousColumnsMenuItem" Click="ImageDisplayMode_Click"/>
+                        </MenuItem>
+                        
+                        <MenuItem Header="Image Scale Mode" Name="imageScaleModeMenuItem">
+                            <MenuItem Header="Normal" Name="normalImageMenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="Best fit" Name="bestFitMenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="Fit to width" Name="fitToWidthMenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="Fit to height" Name="fitToHeightMenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="Scale" Name="scaleMenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="Pixel to pixel" Name="pixelToPixelMenuItem" Click="ImageScale_Click"/>
+                            <Separator />
+                            <MenuItem Header="25%" Name="scale25MenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="50%" Name="scale50MenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="100%" Name="scale100MenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="200%" Name="scale200MenuItem" Click="ImageScale_Click"/>
+                            <MenuItem Header="400%" Name="scale400MenuItem" Click="ImageScale_Click"/>
+                        </MenuItem>
+                        <MenuItem Header="Rotate View" Name="rotateViewModeMenuItem">
+                            <MenuItem Header="Clockwise (Shift+Ctrl+Plus)" Name="rotateClockwiseMenuItem" Click="rotateClockwiseMenuItem_Click"/>
+                            <MenuItem Header="Counterclockwise (Shift+Ctrl+Minus)" Name="rotateCounterclockwiseMenuItem" Click="rotateCounterclockwiseMenuItem_Click"/>
+                        </MenuItem>
+                        <MenuItem Header="Center Image" Name="centerImageMenuItem" IsCheckable="True" Click="centerImageMenuItem_Click"/>
+                        <MenuItem Header="Image Viewer Settings..." Name="imageViewerSettingsMenuItem" Click="imageViewerSettingsMenuItem_Click" />
+                        <MenuItem Header="Viewer Rendering Settings..." Name="viewerRenderingSettingsMenuItem" Click="viewerRenderingSettingsMenuItem_Click" />
+                        <MenuItem Header="Image Map Settings..." Name="imageMapSettingsMenuItem" Click="imageMapSettingsMenuItem_Click"/>
+                        <MenuItem Header="Magnifier Settings..." Name="magnifierSettingsMenuItem" Click="magnifierSettingsMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Current Image Decoding Settings..." Name="currentImageDecodingSettingsMenuItem" Click="currentImageDecodingSettingsMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Color Management..." Name="colorManamgementMenuItem" Click="colorManamgementMenuItem_Click"/>
+                    </MenuItem>
+
+                    <MenuItem Name="imageProcessingMenuItem" Header="Image processing">
+                        <MenuItem Header="Base" Name="baseMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingBase}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Change Pixel Format to Black-White" Name="convertToBlackWhiteMenuItem" >
+                                <MenuItem Header="Threshold..." Name="convertToBlackWhiteThresholdModeMenuItem" Click="convertToBlackWhiteThresholdModeMenuItem_Click"/>
+                                <MenuItem Header="Global" Name="convertToBlackWhiteGlobalModeMenuItem" Click="convertToBlackWhiteGlobalModeMenuItem_Click"/>
+                                <MenuItem Header="Adaptive..." Name="convertToBlackWhiteAdaptiveModeMenuItem" Click="convertToBlackWhiteAdaptiveModeMenuItem_Click"/>
+                                <MenuItem Header="Halftone" Name="convertToBlackWhiteHalftoneModeMenuItem" Click="convertToBlackWhiteHalftoneModeMenuItem_Click" />
+                                <MenuItem Header="Color Gradient..." Name="convertToBlackWhiteColorGradientMenuItem" Click="convertToBlackWhiteColorGradientMenuItem_Click" />
+                            </MenuItem>
+                            <MenuItem Header="Change Pixel Format to Bitonal" Name="convertToPalette1MenuItem" Click="convertToPalette1MenuItem_Click"/>
+                            <MenuItem Header="Change Pixel Format to Grayscale" Name="convertToGray8MenuItem" Click="convertToGray8MenuItem_Click"/>
+                            <MenuItem Header="Change Pixel Format to 256 Colors..." Name="convertToPalette8MenuItem" Click="convertToPalette8MenuItem_Click"/>
+                            <MenuItem Header="Change Pixel Format to RGB" Name="convertToBgr24MenuItem2" Click="convertToBgr24MenuItem2_Click"/>
+                            <MenuItem Header="Change Pixel Format to ARGB" Name="convertToBgra32MenuItem" Click="convertToBgra32MenuItem_Click"/>
+                            <MenuItem Header="Change Pixel Format to Custom..." Name="convertToCustomFormatMenuItem1" Click="convertToCustomFormatMenuItem1_Click"/>
+                            <Separator />
+                            <MenuItem Header="Crop to Selection" Name="cropMenuItem" Click="cropMenuItem_Click"/>
+                            <MenuItem Header="Resize..." Name="resizeMenuItem" Click="resizeMenuItem_Click"/>
+                            <MenuItem Header="Resize Canvas..." Name="resizeCanvasMenuItem" Click="resizeCanvasMenuItem_Click"/>
+                            <MenuItem Header="Resample..." Name="resampleMenuItem" Click="resampleMenuItem_Click"/>
+                            <MenuItem Header="Change Resolution..." Name="changeResolutionMenuItem" Click="changeResolutionMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Overlay Image..." Name="overlayImageMenuItem" Click="overlayImageMenuItem_Click"/>
+                            <MenuItem Header="Overlay Binary Image..." Name="overlayBinaryImageMenuItem" Click="overlayBinaryImageMenuItem_Click"/>
+                            <MenuItem Header="Overlay with Color Blending..." Name="overlayWithBlendingMenuItem" Click="overlayWithBlendingMenuItem_Click"/>
+                            <MenuItem Header="Overlay with Mask..." Name="overlayWithMaskMenuItem" Click="overlayWithMaskMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Fill Image..." Name="fillImageMenuItem" Click="fillImageMenuItem_Click"/>
+                            <MenuItem Header="Fill Rectangle..." Name="fillRectangleMenuItem" Click="fillRectangleMenuItem_Click" />
+                            <Separator />
+                            <MenuItem Header="Image Compare..." Name="imageCompareMenuItem" Click="imageCompareMenuItem_Click" />
+                        </MenuItem>
+
+                        <MenuItem Header="Info" Name="infoMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingInfo}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Histogram..." Name="histogramMenuItem" Click="histogramMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Is Image Black-White..." Name="isImageBlackWhiteMenuItem" Click="isImageBlackWhiteMenuItem_Click"/>
+                            <MenuItem Header="Is Image Grayscale..." Name="isImageGrayscaleMenuItem" Click="isImageGrayscaleMenuItem_Click"/>
+                            <MenuItem Header="Get Color Count" Name="colorCountMenuItem" Click="colorCountMenuItem_Click"/>
+                            <MenuItem Header="Get Image Color Depth..." Name="getImageColorDepthMenuItem" Click="getImageColorDepthMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Get Border Color" Name="borderColorMenuItem" Click="borderColorMenuItem_Click"/>
+                            <MenuItem Header="Get Background Color" Name="getBackgroundColorMenuItem" Click="getBackgroundColorMenuItem_Click"/>
+                            <MenuItem Header="Get Threshold" Name="detectThresholdMenuItem" Click="detectThresholdMenuItem_Click"/>
+                            <MenuItem Header="Is Image Blank?" Name="isImageBlankMenuItem" Click="isImageBlankMenuItem_Click"/>
+                            <MenuItem Header="Has Certain Color..." Name="hasCertainColorMenuItem" Click="hasCertainColorMenuItem_Click" />
+                        </MenuItem>
+
+                        <MenuItem Header="Transforms" Name="transformsMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingTransform}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Flip" Name="flipMenuItem1">
+                                <MenuItem Header="X" Name="xMenuItem1" Click="flipMenuItem_Click"/>
+                                <MenuItem Header="Y" Name="yMenuItem1" Click="flipMenuItem_Click"/>
+                                <MenuItem Header="XY" Name="xYMenuItem1" Click="flipMenuItem_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="Rotate" Name="rotateMenuItem">
+                                <MenuItem Header="90" Name="rotate90" Click="rotate_Click"/>
+                                <MenuItem Header="180" Name="rotate180" Click="rotate_Click"/>
+                                <MenuItem Header="270" Name="rotate270" Click="rotate_Click"/>
+                                <Separator />
+                                <MenuItem Header="Custom..." Name="customMenuItem" Click="rotate_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="Scale..." Name="imageScalingMenuItem" Click="imageScalingMenuItem_Click" />
+                            <MenuItem Header="Skew...	" Name="skewMenuItem" Click="skewMenuItem_Click"/>
+                            <MenuItem Header="Quadrilateral Warp..." Name="quadrilateralWarpMenuItem" Click="quadrilateralWarpMenuItem_Click"/>
+                        </MenuItem>
+
+                        <MenuItem Header="Channels" Name="channelsMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingChannels}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Set Alpha channel..." Name="setAlphaChannelMenuItem" Click="setAlphaChannelMenuItem_Click"/>
+                            <MenuItem Header="Set Alpha channel from mask..." Name="setAlphaChannelFromMaskMenuItem" Click="setAlphaChannelFromMaskMenuItem_Click"/>
+                            <MenuItem Header="Extract Alpha channel" Name="extractAlphaChannelMenuItem1" Click="extractAlphaChannelMenuItem1_Click"/>
+                            <Separator />
+                            <MenuItem Header="Invert R channel" Name="invertRChannelMenuItem" Click="invertRChannelMenuItem_Click"/>
+                            <MenuItem Header="Invert G channel" Name="invertGChannelMenuItem" Click="invertGChannelMenuItem_Click"/>
+                            <MenuItem Header="Invert B channel" Name="invertBChannelMenuItem" Click="invertBChannelMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Remove R channel" Name="removeRChannelMenuItem" Click="removeRChannelMenuItem_Click"/>
+                            <MenuItem Header="Remove G channel" Name="removeGChannelMenuItem" Click="removeGChannelMenuItem_Click"/>
+                            <MenuItem Header="Remove B channel" Name="removeBChannelMenuItem" Click="removeBChannelMenuItem_Click"/>
+                        </MenuItem>
+
+                        <MenuItem Header="Color" Name="colorMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingColor}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Convert to Black-White" Name="blackAndWhiteMenuItem">
+                                <MenuItem Header="Threshold..." Name="thresholdMenuItem1" Click="convertToBlackWhiteThresholdMenuItem_Click"/>
+                                <MenuItem Header="Global" Name="globalMenuItem1" Click="convertToBlackWhiteGlobalMenuItem_Click"/>
+                                <MenuItem Header="Adaptive..." Name="adaptiveMenuItem1" Click="convertToBlackWhiteAdaptiveMenuItem_Click"/>
+                                <MenuItem Header="Color Gradient..." Name="colorGradientBinarizationMenuItem" Click="colorGradientBinarizationMenuItem_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="Desaturate" Name="desaturateMenuItem" Click="desaturateMenuItem_Click"/>
+                            <MenuItem Header="Convert to Halftone" Name="halftoneMenuItem" Click="halftoneMenuItem_Click"/>
+                            <MenuItem Header="Posterize..." Name="posterizeMenuItem" Click="posterizeMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Brightness and Contrast..." Name="brightnessContrastMenuItem" Click="brightnessContrastMenuItem_Click"/>
+                            <MenuItem Header="Gamma..." Name="gammaMenuItem" Click="gammaMenuItem_Click"/>
+                            <MenuItem Header="Levels..." Name="levelsMenuItem" Click="levelsMenuItem_Click"/>
+                            <MenuItem Header="Hue, Saturation and Luminance..." Name="hueSaturationLuminanceMenuItem" Click="hueSaturationLuminanceMenuItem_Click"/>
+                            <MenuItem Header="Invert Colors" Name="invertColorsMenuItem" Click="invertColorsMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Replace Color..." Name="replaceColorMenuItem" Click="replaceColorMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Color Blending..." Name="colorBlendMenuItem" Click="colorBlendMenuItem_Click"/>
+                            <MenuItem Header="ICC-based color transform..." Name="colorTransformMenuItem" Click="colorTransformMenuItem_Click" />
+                        </MenuItem>
+
+                        <MenuItem Header="Filters" Name="filtersMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingFilters}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Minimum..." Name="minimumMenuItem" Click="minimumMenuItem_Click"/>
+                            <MenuItem Header="Maximum..." Name="maximumMenuItem" Click="maximumMenuItem_Click"/>
+                            <MenuItem Header="Mid point..." Name="midPointMenuItem" Click="midPointMenuItem_Click"/>
+                            <MenuItem Header="Mean..." Name="meanMenuItem" Click="meanMenuItem_Click"/>
+                            <MenuItem Header="Median..." Name="medianMenuItem" Click="medianMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Dilate..." Name="dilateMenuItem" Click="dilateMenuItem_Click"/>
+                            <MenuItem Header="Erode..." Name="erodeMenuItem" Click="erodeMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Blur..." Name="blurMenuItem" Click="blurMenuItem_Click"/>
+                            <MenuItem Header="Gaussian Blur..." Name="gaussianBlurMenuItem" Click="gaussianBlurMenuItem_Click"/>
+                            <MenuItem Header="Sharpen" Name="sharpenMenuItem" Click="sharpenMenuItem_Click"/>
+                            <MenuItem Header="Edge Detection" Name="edgesMenuItem" Click="edgesMenuItem_Click"/>
+                            <MenuItem Header="Emboss..." Name="embossMenuItem" Click="embossMenuItem_Click"/>
+                            <MenuItem Header="Add noise" Name="addNoiseMenuItem" Click="addNoiseMenuItem_Click"/>
+                            <MenuItem Header="Canny edge detector" Name="cannyEdgeDetectorMenuItem" Click="cannyEdgeDetectorMenuItem_Click"/>
+                        </MenuItem>
+
+                        <MenuItem Header="Document Cleanup" Name="documentMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingDocument}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Is Document Image?" Name="isDocumentImageMenuItem" Click="isDocumentImageMenuItem_Click"/>
+                            <MenuItem Header="Get Document Image Rotation Angle..." Name="getDocumentImageRotationAngleMenuItem" Click="getDocumentImageRotationAngleMenuItem_Click"/>
+                            <MenuItem Header="Get Image Rotation Angle..." Name="rotationAngleMenuItem" Click="rotationAngleMenuItem_Click"/>
+                            <MenuItem Header="Get Text Orientation..." Name="getTextOrientationMenuItem" Click="getTextOrientationMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Despeckle..." Name="despeckleMenuItem" Click="despeckleMenuItem_Click"/>
+                            <MenuItem Header="Deskew Document Image..." Name="deskewDocumentImageMenuItem" Click="deskewDocumentImageMenuItem_Click"/>
+                            <MenuItem Header="Deskew Image..." Name="deskewMenuItem" Click="deskewMenuItem_Click"/>
+                            <MenuItem Header="Auto Text Orientation..." Name="autoOrientationMenuItem" Click="autoOrientationMenuItem_Click"/>
+                            <MenuItem Header="Auto Text Invert..." Name="textBlockInvertMenuItem" Click="textBlockInvertMenuItem_Click"/>
+                            <MenuItem Header="Auto Invert" Name="automaticInvertMenuItem" Click="automaticInvertMenuItem_Click"/>
+                            <MenuItem Header="Border Clear" Name="borderClearMenuItem" Click="borderClearMenuItem_Click"/>
+                            <MenuItem Header="Border Removal..." Name="borderRemovalMenuItem" Click="borderRemovalMenuItem_Click"/>
+                            <MenuItem Header="Halftone Removal..." Name="halftoneRemovalMenuItem" Click="halftoneRemovalMenuItem_Click"/>
+                            <MenuItem Header="Smoothing..." Name="smoothingMenuItem" Click="smoothingMenuItem_Click"/>
+                            <MenuItem Header="Hole Punch Filling..." Name="holePunchFillingMenuItem" Click="holePunchFillingMenuItem_Click"/>
+                            <MenuItem Header="Hole Punch Removal..." Name="holePunchRemovalMenuItem" Click="holePunchRemovalMenuItem_Click"/>
+                            <MenuItem Header="Line Removal..." Name="lineRemovalMenuItem" Click="lineRemovalMenuItem_Click"/>
+                            <MenuItem Header="Shape Removal..." Name="shapeRemovalMenuItem" Click="shapeRemovalMenuItem_Click"/>
+                            <MenuItem Header="Color Noise Clear..." Name="colorNoiseClearMenuItem" Click="colorNoiseClearMenuItem_Click" />
+                            <MenuItem Header="Advanced Replace Color..." Name="advancedReplaceColorMenuItem" Click="advancedReplaceColorMenuItem_Click" />
+                            <MenuItem Header="Replace Color Gradient..." Name="replaceGeradientColorMenuItem" Click="replaceColorGradientMenuItem_Click"/>
+                        </MenuItem>
+
+                        <MenuItem Header="Photo Effects" Name="effectsMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingEffects}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Auto Levels" Name="autoLevelsMenuItem" Click="autoLevelsMenuItem_Click"/>
+                            <MenuItem Header="Auto Colors" Name="autoColorsMenuItem" Click="autoColorsMenuItem_Click"/>
+                            <MenuItem Header="Auto Contrast" Name="autoContrastMenuItem" Click="autoContrastMenuItem_Click"/>
+                            <Separator />
+                            <MenuItem Header="Bevel Edge..." Name="bevelEdgeMenuItem" Click="bevelEdgeMenuItem_Click"/>
+                            <MenuItem Header="Drop Shadow..." Name="dropShadowMenuItem" Click="dropShadowMenuItem_Click"/>
+                            <MenuItem Header="Motion Blur..." Name="motionBlurMenuItem" Click="motionBlurMenuItem_Click"/>
+                            <MenuItem Header="Mozaic..." Name="mozaicMenuItem" Click="mozaicMenuItem_Click"/>
+                            <MenuItem Header="Oil Painting..." Name="oilPaintingMenuItem" Click="oilPaintingMenuItem_Click"/>
+                            <MenuItem Header="Pixelate..." Name="pixelateMenuItem" Click="pixelateMenuItem_Click"/>
+                            <MenuItem Header="Red Eye Removal..." Name="redEyeRemovalMenuItem" Click="redEyeRemovalMenuItem_Click"/>
+                            <MenuItem Header="Sepia" Name="sepiaMenuItem" Click="sepiaMenuItem_Click"/>
+                            <MenuItem Header="Solarize" Name="solarizeMenuItem" Click="solarizeMenuItem_Click"/>
+                            <MenuItem Header="Tile Reflection..." Name="tileReflectionMenuItem" Click="tileReflectionMenuItem_Click"/>
+                        </MenuItem>
+
+                        <MenuItem Header="FFT" Name="fftMenuItem">
+                            <MenuItem.Icon>
+                                <Image Source="{StaticResource ProcessingFFT}" Width="16" Height="16" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Filtering" Name="fftFilteringMenuItem">
+                                <MenuItem Header="Ideal Lowpass..." Name="idealLowpassMenuItem" Click="idealLowpassMenuItem_Click"/>
+                                <MenuItem Header="Butterworth Lowpass..." Name="butterworthLowpassMenuItem" Click="butterworthLowpassMenuItem_Click" />
+                                <MenuItem Header="Gaussian Lowpass..." Name="gaussianLowpassMenuItem" Click="gaussianLowpassMenuItem_Click" />
+                                <MenuItem Header="Ideal Highpass..." Name="idealHighpassMenuItem" Click="idealHighpassMenuItem_Click"/>
+                                <MenuItem Header="Butterworth Highpass..." Name="butterworthHighpassMenuItem" Click="butterworthHighpassMenuItem_Click"/>
+                                <MenuItem Header="Gaussian Highpass..." Name="gaussianHighpassMenuItem" Click="gaussianHighpassMenuItem_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="Image Smoothing..." Name="imageSmoothingMenuItem" Click="imageSmoothingMenuItem_Click" />
+                            <MenuItem Header="Image Sharpening..." Name="imageSharpeningMenuItem" Click="imageSharpeningMenuItem_Click"/>
+                            <MenuItem Header="Frequency Specrtum Visualizer..." Name="frequencySpecrtumVisualizerMenuItem" Click="frequencySpecrtumVisualizerMenuItem_Click"/>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Header="Use Multithreading" Name="useMultithreadingMenuItem" IsCheckable="True" IsChecked="False" Checked="useMultithreadingMenuItem_Checked" Unchecked="useMultithreadingMenuItem_Checked"/>
+                        <MenuItem Header="Expand Pixel Format" Name="expandPixelFormatMenuItem" IsCheckable="True" IsChecked="True" Checked="expandPixelFormatMenuItem_Checked" Unchecked="expandPixelFormatMenuItem_Checked" />
+                        <Separator />
+                        <MenuItem Header="Load Clipping Paths From Metadata" Name="loadPathsFromMetadataMenuItem" Click="loadPathsFromMetadataMenuItem_Click"/>
+
+                       </MenuItem>
+
+                    <MenuItem Header="Tools" Name="toolsMenuItem" >
+                        <MenuItem Header="Show Animation..." Name="animationMenuItem" Click="animationMenuItem_Click"/>
+                    </MenuItem>
+
+                    <MenuItem Name="helpMenuItem" Header="Help">
+                        <MenuItem Header="About... (F1)" Name="aboutMenuItem" Click="aboutMenuItem_Click"/>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+            <DockPanel VerticalAlignment="Top" DockPanel.Dock="Top">
+                <widcci:ImageViewerToolBar ToolBarTray.IsLocked="True" x:Name="imageViewerToolBar" CanNavigate="True" CanScan="True" CanCaptureFromCamera="True" OpenFile="imageViewerToolBar_OpenFile" Print="imageViewerToolBar_Print" SaveFile="imageViewerToolBar_SaveFile" Scan="imageViewerToolBar_Scan" CaptureFromCamera="imageViewerToolBar_CaptureFromCamera"/>
+                <widcci:VisualToolsToolBar ToolBarTray.IsLocked="True" x:Name="visualToolsToolBar"/>
+            </DockPanel>
+            <DockPanel Height="25" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <TextBlock Text="Zoom" Margin="5,1,5,5"/>
+                <Slider Name="zoomSlider" Minimum="1" Maximum="1000" Value="100"></Slider>
+            </DockPanel>
+            <DockPanel VerticalAlignment="Stretch">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <vsui:WpfThumbnailViewer 
+                        Background="LightGray" 
+                        BorderBrush="Black" BorderThickness="1"
+                        ThumbnailContainerStyle="{StaticResource ThumbnailItemStyle}" 
+                        Grid.Column ="0" 
+                        Name="thumbnailViewer" 
+                        GenerateOnlyVisibleThumbnails="True" 
+                        ThumbnailFlowStyle="WrappedRows"
+                        HoveredThumbnailChanged="thumbnailViewer_HoveredThumbnailChanged"
+                        KeyUp="thumbnailViewer_KeyUp"
+                        ThumbnailsLoadingProgress="thumbnailViewer_ThumbnailsLoadingProgress" 
+                        ThumbnailAdded="thumbnailViewer_ThumbnailAdded"
+                        InputGestureCut="{x:Null}"
+                        InputGestureCopy="{x:Null}"
+                        InputGestureInsert="{x:Null}"
+                        Margin="0,0,5,0">
+                        <vsui:WpfThumbnailViewer.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Open" Name="thumbnailViewer_openImageMenuItem" Click="openMenuItem_Click"/>
+                                <MenuItem Header="Add" Name="thumbnailViewer_addImageMenuItem" >
+                                    <MenuItem Header="From file" Name="thumbnailViewer_addImageFromFileMenuItem" Click="addMenuItem_Click"/>
+                                    <MenuItem Header="From clipboard" Name="thumbnailViewer_addImageFromClipboardMenuItem" Click="addFromClipboardMenuItem_Click"/>
+                                </MenuItem>
+                            </ContextMenu>
+                        </vsui:WpfThumbnailViewer.ContextMenu>
+                    </vsui:WpfThumbnailViewer>
+                    <GridSplitter Grid.Column ="0" Background="LightBlue" Width="5" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+                    <vsui:WpfImageViewer  Grid.Column ="1" x:Name="imageViewer" Width="Auto" Height="Auto" SizeMode="BestFit" Background="LightGray" BorderBrush="Black" BorderThickness="1"
+                                          ZoomChanged="imageViewer_ZoomChanged" 
+                                          ImageLoading="imageViewer_ImageLoading"
+                                          ImageLoaded="imageViewer_ImageLoaded"
+                                          ImageLoadingException="imageViewer_ImageLoadingException"
+                                          ImageLoadingProgress="imageViewer_ImageLoadingProgress"
+                                          ImageChanged="imageViewer_ImageChanged"
+                                          ImageReloaded="imageViewer_ImageReloaded"
+                                          FocusedIndexChanging="imageViewer_FocusedIndexChanging"
+                                          FocusedIndexChanged="imageViewer_FocusedIndexChanged"
+                                          KeyUp="imageViewer_KeyUp"
+                                          MouseUp="imageViewer_MouseUp"
+                                          VisualToolChanged="imageViewer_VisualToolChanged"
+                                          RendererCacheSize="256"
+                                          IsKeyboardNavigationEnabled="True">
+                        <vsui:WpfImageViewer.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Save Image" Name="imageViewer_saveImageMenuItem" >
+                                    <MenuItem Header="To file..." Name="imageViewer_saveImageToFileMenuItem" Click="saveCurrentImageMenuItem_Click"/>
+                                    <MenuItem Header="To clipboard" Name="imageViewer_copyImageToClipboardMenuItem" Click="copyImageMenuItem_Click"/>
+                                </MenuItem>
+                                <MenuItem Header="Set Image" Name="imageViewer_setImageMenuItem" >
+                                    <MenuItem Header="From file..." Name="imageViewer_setImageFromFileMenuItem" Click="setImageFromFileMenuItem_Click"/>
+                                    <MenuItem Header="From clipboard" Name="imageViewer_setImageFromClipboardMenuItem" Click="pasteImageMenuItem_Click"/>
+                                </MenuItem>
+                                <MenuItem Header="Insert Image" Name="imageViewer_insertImageMenuItem" >
+                                    <MenuItem Header="From file..." Name="imageViewer_insertImageFromFileMenuItem" Click="insertImageFromFileMenuItem_Click"/>
+                                    <MenuItem Header="From clipboard" Name="imageViewer_insertImageFromClipboardMenuItem" Click="insertImageFromClipboardMenuItem_Click"/>
+                                </MenuItem>
+                                <MenuItem Header="Delete Image" Name="imageViewer_deleteImageMenuItem" Click="deleteImageMenuItem_Click"/>
+                            </ContextMenu>
+                        </vsui:WpfImageViewer.ContextMenu>
+                    </vsui:WpfImageViewer>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

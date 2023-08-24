@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfImagingDemo.WpfLevelsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="Levels" Height="285" Width="532"
+    ResizeMode="NoResize">
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+    
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <CustomControls:ValueEditorControl Grid.Row="0" Grid.Column="0" x:Name="sourceMinValueEditorControl" ValueHeader="Source Min" MinValue="0" MaxValue="255" Step="1" ValueChanged="ValueEditorControl_ValueChanged"/>
+        <CustomControls:ValueEditorControl Grid.Row="0" Grid.Column="1" x:Name="sourceMaxValueEditorControl" ValueHeader="Source Max" MinValue="0" MaxValue="255" Step="1" ValueChanged="ValueEditorControl_ValueChanged"/>
+        <CustomControls:ValueEditorControl Grid.Row="1" Grid.Column="0" x:Name="destinationMinValueEditorControl" ValueHeader="Destination Min" MinValue="0" MaxValue="255" Step="1" ValueChanged="ValueEditorControl_ValueChanged"/>
+        <CustomControls:ValueEditorControl Grid.Row="1" Grid.Column="1" x:Name="destinationMaxValueEditorControl" ValueHeader="Destination Max" MinValue="0" MaxValue="255" Step="1" ValueChanged="ValueEditorControl_ValueChanged"/>
+        <CustomControls:ValueEditorControl Grid.Row="2" Grid.Column="0" x:Name="gammaValueEditorControl" ValueHeader="Gamma" MinValue="0" MaxValue="8" Step="0.01" DecimalPlaces="4" ValueChanged="ValueEditorControl_ValueChanged"/>
+        <GroupBox Grid.Row="2" Grid.Column="1" Header="Channels">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Name="redCheckBox" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="channelCheckBox_CheckedChanged" Unchecked="channelCheckBox_CheckedChanged" IsChecked="True">Red</CheckBox>
+                <CheckBox Name="greenCheckBox" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="channelCheckBox_CheckedChanged" Unchecked="channelCheckBox_CheckedChanged" IsChecked="True">Green</CheckBox>
+                <CheckBox Name="blueCheckBox" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="channelCheckBox_CheckedChanged" Unchecked="channelCheckBox_CheckedChanged" IsChecked="True">Blue</CheckBox>
+            </Grid>
+            
+        </GroupBox>
+
+
+        <CheckBox Name="previewCheckBox" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Checked="previewCheckBox_CheckedChanged" Unchecked="previewCheckBox_CheckedChanged">Preview on ImageViewer</CheckBox>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Name="buttonOk" Margin="3" Width="75" Click="buttonOk_Click">OK</Button>
+            <Button Name="cancelButton" Margin="3" Width="75" Click="cancelButton_Click">Cancel</Button>
+        </StackPanel>
+        
+    </Grid>
+</Window>

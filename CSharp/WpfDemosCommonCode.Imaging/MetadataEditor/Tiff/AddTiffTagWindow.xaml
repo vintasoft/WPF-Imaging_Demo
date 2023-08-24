@@ -1,0 +1,88 @@
+﻿<Window x:Class="WpfDemosCommonCode.Imaging.AddTiffTagWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="Add TIFF Tag" Height="181" Width="459" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="55*" />
+            <RowDefinition Height="38*" />
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0" Header="Tag">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*" />
+                    <ColumnDefinition Width="193*" />
+                    <ColumnDefinition Width="159*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">ID:</Label>
+                <CustomControls:NumericUpDown x:Name="tagIdNumericUpDown" Grid.Column="1" ValueChanged="tagIdNumericUpDown_ValueChanged" HorizontalAlignment="Left" Minimum="1" Maximum="65535" Value="58000" Width="79" Height="24"/>
+                <Label Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">Data type:</Label>
+                <ComboBox Name="tagDataTypeComboBox" VerticalContentAlignment="Center" Grid.Column="2" Width="121" HorizontalAlignment="Left" Height="24" SelectionChanged="tagDataTypeComboBox_SelectionChanged">
+                    <ComboBoxItem>String</ComboBoxItem>
+                    <ComboBoxItem>Int16</ComboBoxItem>
+                    <ComboBoxItem>UInt16</ComboBoxItem>
+                    <ComboBoxItem>Int32</ComboBoxItem>
+                    <ComboBoxItem>UInt32</ComboBoxItem>
+                    <ComboBoxItem>Float</ComboBoxItem>
+                    <ComboBoxItem>Double</ComboBoxItem>
+                    <ComboBoxItem>Rational</ComboBoxItem>
+                    <ComboBoxItem>SRational</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="stringValueGroupBox" Header="New string value" Grid.Row="1" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65*" />
+                    <ColumnDefinition Width="360*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">Value:</Label>
+                <TextBox Name="stringValueTextBox" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="344"></TextBox>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="rationalValueGroupBox" Header="New rational value" Grid.Row="1" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="113*" />
+                    <ColumnDefinition Width="184*" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>                
+                <Label Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">Numerator:</Label>
+                <CustomControls:NumericUpDown x:Name="rationalValueNumeratorNumericUpDown" Height="24" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="83" Minimum="0" Maximum="1000000"/>
+                <Label Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">Denominator:</Label>
+                <CustomControls:NumericUpDown x:Name="rationalValueDenominatorNumericUpDown" Height="24" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="83" Minimum="0" Maximum="10000"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="integerValueGroupBox" Header="New integer value" Grid.Row="1" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="194*" />
+                    <ColumnDefinition Width="231*" />
+                </Grid.ColumnDefinitions>
+                <Label HorizontalAlignment="Right" Grid.Column="0" VerticalAlignment="Center">Value:</Label>
+                <CustomControls:NumericUpDown x:Name="integerValueNumericUpDown" Minimum="0" Maximum="1000000" Grid.Column="1" Width="83" Height="24" HorizontalAlignment="Left"/>
+            </Grid>
+        </GroupBox>
+        
+        <GroupBox Name="doubleValueGroup" Header="New double value" Grid.Row="1" Visibility="Visible">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="163*" />
+                    <ColumnDefinition Width="262*" />
+                </Grid.ColumnDefinitions>                
+                <Label HorizontalAlignment="Right" Grid.Column="0" VerticalAlignment="Center">Value:</Label>                
+                <TextBox Name="doubleValueTextBox" Grid.Column="1" VerticalAlignment="Center" Width="147" Height="24" HorizontalAlignment="Left">0,0</TextBox>
+            </Grid>
+        </GroupBox>
+
+
+        <Button Name="okButton" HorizontalAlignment="Center" Margin="0,0,85,0" Grid.Row="2" Height="24" Width="75" Click="okButton_Click">OK</Button>
+        <Button Name="cancelButton" HorizontalAlignment="Center" Margin="85,0,0,0" Grid.Row="2" Height="24" Width="75" Click="cancelButton_Click">Cancel</Button>
+    </Grid>
+</Window>

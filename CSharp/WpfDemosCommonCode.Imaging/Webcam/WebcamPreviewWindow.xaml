@@ -1,0 +1,83 @@
+﻿<Window x:Class="WpfDemosCommonCode.Imaging.WebcamPreviewWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
+    xmlns:userControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="" 
+    MinHeight="480" Height="481"
+    MinWidth="440" Width="441"
+    Closed="Window_Closed"
+    Loaded="Window_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <vsui:WpfImageViewer Grid.Row="0" x:Name="videoPreviewImageViewer" SizeMode="BestFit" Height="Auto" Width="Auto" BorderBrush="Black" BorderThickness="1" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="99" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="148" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="31" />
+                <RowDefinition Height="31" />
+            </Grid.RowDefinitions>
+
+            <Button Name="propertiesDefaultUiButton" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Margin="0,3,3,3" Click="propertiesDefaultUiButton_Click">Properties (Default UI) ...</Button>
+            <Button Name="propertiesCustomUiButton" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Margin="0,3,3,3" Click="propertiesCustomUiButton_Click">Properties (Custom UI) ...</Button>
+
+            <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">Video format</Label>
+            <ComboBox Name="formatsComboBox" Grid.Column="1" Grid.Row="0" Margin="3" IsReadOnly="True" SelectionChanged="formatsComboBox_SelectionChanged"/>
+
+            <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">Frame delay (ms)</Label>
+            <userControls:NumericUpDown x:Name="frameDelayNumericUpDown" Grid.Column="1" Grid.Row="1" Width="Auto" Height="Auto" Margin="3" Minimum="0" Maximum="5000" Increment="10" ValueChanged="frameDelayNumericUpDown_ValueChanged"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="322*" />
+                <ColumnDefinition Width="97*" />
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="Processing" Grid.Column="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="91" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="91" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="31" />
+                        <RowDefinition Height="31" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">Rotate</Label>
+                    <ComboBox Name="rotateComboBox" Grid.Column="1" Grid.Row="0" Margin="3" SelectedIndex="0" IsEditable="True" TextBoxBase.TextChanged="rotateComboBox_TextChanged">
+                        <ComboBoxItem>0</ComboBoxItem>
+                        <ComboBoxItem>90</ComboBoxItem>
+                        <ComboBoxItem>180</ComboBoxItem>
+                        <ComboBoxItem>270</ComboBoxItem>
+                    </ComboBox>
+
+                    <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">Invert</Label>
+
+                    <ComboBox Name="invertComboBox" Grid.Column="1" Grid.Row="1" Margin="3" IsReadOnly="True" SelectedIndex="0" SelectionChanged="ChangeProcessingCommandHandler">
+                        <ComboBoxItem>(none)</ComboBoxItem>
+                        <ComboBoxItem>Invert</ComboBoxItem>
+                        <ComboBoxItem>Invert RED</ComboBoxItem>
+                        <ComboBoxItem>Invert GREEN</ComboBoxItem>
+                        <ComboBoxItem>Invert BLUE</ComboBoxItem>
+                    </ComboBox>
+
+                    <CheckBox Name="grayscaleCheckBox" Grid.Column="2" Grid.Row="1" Margin="3" VerticalAlignment="Center" Checked="grayscaleCheckBox_CheckChanged" Unchecked="grayscaleCheckBox_CheckChanged">Grayscale</CheckBox>
+                </Grid>
+            </GroupBox>
+            
+            <Button Name="captureImageButton" Grid.Column="1" Margin="3,9,3,3" Click="captureImageButton_Click">Capture Image</Button>
+        </Grid>
+    </Grid>
+</Window>

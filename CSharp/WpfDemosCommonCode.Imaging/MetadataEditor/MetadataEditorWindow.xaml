@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfDemosCommonCode.Imaging.MetadataEditorWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Imaging="clr-namespace:WpfDemosCommonCode.Imaging"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    Title="Metadata Editor" Height="598" MinHeight="380" Width="800" MinWidth="520" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="377*" />
+            <ColumnDefinition Width="401*" />
+        </Grid.ColumnDefinitions>
+
+        <Imaging:MetadataTreeView x:Name="metadataTreeView" Grid.Column="0" Grid.Row="0" SelectedItemChanged="metadataTreeView_SelectedItemChanged"/>
+        <Button Name="okButton" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Height="21" Width="75" Margin="9,0" Click="okButton_Click">OK</Button>
+
+        <GroupBox Name="metadataNodeProperties" Header="GroupBox1" Grid.Column="1" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="132" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="268*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Button Name="buttonDelete" Margin="5,4" Grid.Row="0" Grid.Column="0" Click="deleteButton_Click">Delete This Node</Button>
+                    <Button Name="executeButton" Margin="5,4"  Grid.Row="1" Grid.Column="0" Click="executeButton_Click">Execute</Button>
+                    <Button Name="addNodeButton" Margin="5,4"  Grid.Row="2" Grid.Column="0" Click="addNewNodeToSelectedNodeButton_Click">Add TIFF Tag...</Button>
+                    <ComboBox Name="methodsComboBox" Margin="3,4" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
+                    <Button Margin="5,4" Grid.Row="3" Grid.Column="0" Name="saveBinaryValueToFileButton" Click="saveBinaryValueToFileButton_Click">Save value to file...</Button>
+                    <Button Margin="5,4" Width="130" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" Name="loadBinaryValueFromFileButton" Click="loadBinaryValueFromFileButton_Click">Load value from file...</Button>
+                </Grid>
+
+                <WindowsFormsHost Grid.Row="1" Name="windowsFormsHost1" >
+                    <wf:PropertyGrid x:Name="nodePropertyGrid"  PropertyValueChanged="nodePropertyGrid_PropertyValueChanged"/>
+                </WindowsFormsHost>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

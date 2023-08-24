@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfDemosCommonCode.Imaging.PaletteWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
+    xmlns:uc="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="Palette" Height="510" Width="420">
+    <Grid Name="rootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <DockPanel Name="paletteViewerPanel" Margin="4" Grid.Row="0" HorizontalAlignment="Left">
+            <vsui:WpfPaletteViewer x:Name="_paletteViewer" MouseDoubleClick="paletteViewer_MouseDoubleClick"/>
+        </DockPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="ARGB=" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <uc:NumericUpDown Grid.Column="1" x:Name="alphaNumericUpDown" Width="55" HorizontalAlignment="Center" VerticalAlignment="Center" Maximum="255" ValueChanged="colorNumericUpDown_ValueChanged"/>
+            <uc:NumericUpDown Grid.Column="2" x:Name="redNumericUpDown" Width="55" HorizontalAlignment="Center" VerticalAlignment="Center" Maximum="255" ValueChanged="colorNumericUpDown_ValueChanged"/>
+            <uc:NumericUpDown Grid.Column="3" x:Name="greenNumericUpDown"  Width="55" HorizontalAlignment="Center" VerticalAlignment="Center" Maximum="255" ValueChanged="colorNumericUpDown_ValueChanged"/>
+            <uc:NumericUpDown Grid.Column="4" x:Name="blueNumericUpDown"  Width="55" HorizontalAlignment="Center" VerticalAlignment="Center" Maximum="255" ValueChanged="colorNumericUpDown_ValueChanged"/>
+            <TextBlock Grid.Column="6" Text="Index=" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <uc:NumericUpDown Grid.Column="7" x:Name="colorIndexNumericUpDown" Value="{Binding ElementName=paletteViewer,Path=(vsui:WpfPaletteViewer.SelectedColorIndex)}"  Width="55" HorizontalAlignment="Center" VerticalAlignment="Center" Maximum="255"/>
+        </Grid>
+        <Grid Grid.Row="2">
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="toGrayButton" Content="To Gray" Width="70" Height="25" Click="toGrayButton_Click"/>
+            <Button Grid.Column="1" Name="invertButton" Content="Invert" Width="70" Height="25" Click="invertButton_Click"/>
+            <Button Grid.Column="3" Name="buttonOk" Content="OK" Width="70" Height="25" Click="buttonOk_Click"/>
+            <Button Grid.Column="4" Name="buttonCancel" Content="Cancel" Width="70" Height="25" Click="buttonCancel_Click" IsCancel="True"/>
+        </Grid>
+    </Grid>
+</Window>

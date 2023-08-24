@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfDemosCommonCode.Barcode.GetSizeWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="Set {0}" Height="135" Width="288" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <DockPanel Height="26" DockPanel.Dock="Top" Margin="2">
+            <Label Name="sizeLabel" Width="80">{0}:</Label>
+            <TextBox Name="valueTextBox" Width="90" Text="5"></TextBox>
+            <ComboBox Name="unitsComboBox" Width="90" Margin="2"></ComboBox>
+        </DockPanel>
+        <DockPanel Height="26" DockPanel.Dock="Top" Margin="2">
+            <Label Width="80">Resolution:</Label>
+            <cc:NumericUpDown x:Name="resolutionNumericUpDown" Width="90" Minimum="10" Value="96" Maximum="2400"></cc:NumericUpDown>
+            <Label>DPI</Label>
+        </DockPanel>
+        <DockPanel Height="26" DockPanel.Dock="Top" VerticalAlignment="Top" Margin="5">            
+            <Button Margin="20,0,30,0" Width="80" Click="okButton_Click">OK</Button>
+            <Button Margin="20,0,20,0" Width="80" Click="cancelButton_Click">Cancel</Button>
+        </DockPanel>
+
+    </DockPanel>
+</Window>

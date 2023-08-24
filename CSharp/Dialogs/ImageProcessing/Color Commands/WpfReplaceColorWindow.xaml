@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfImagingDemo.WpfReplaceColorWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="Replace Color" Height="218" Width="275" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="105*" />
+            <ColumnDefinition Width="92*" />
+            <ColumnDefinition Width="55*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Margin="3,0" VerticalAlignment="Center">Old Color</Label>
+        <CustomControls:ColorPanelControl x:Name="oldColorPanelControl" Margin="0,0,5,0" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Height="21" ColorButtonWidth="46" ColorButtonMargin="4" ColorChanged="ColorPanelControl_ColorChanged"/>
+       
+        <Label Grid.Row="1" Grid.Column="0" Margin="3,0" VerticalAlignment="Center">New Color</Label>
+        <CustomControls:ColorPanelControl x:Name="newColorPanelControl" Margin="0,0,5,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="21" ColorButtonWidth="46" ColorButtonMargin="4" ColorChanged="ColorPanelControl_ColorChanged" />
+
+        <Label Grid.Row="2" Grid.Column="0" Margin="3,0" VerticalAlignment="Center">Color Tolerance</Label>
+        <CustomControls:NumericUpDown x:Name="colorToleranceNumericUpDown" Grid.Row="2" Grid.Column="1" Minimum="0" Maximum="442"  Width="Auto" Height="26" VerticalAlignment="Center" ValueChanged="colorToleranceNumericUpDown_ValueChanged"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Margin="3,0" VerticalAlignment="Center">Color Space</Label>
+        <ComboBox Name="colorSpaceComboBox" Grid.Row="3" Grid.Column="1" Height="21" VerticalAlignment="Center" Width="Auto" SelectionChanged="colorSpaceComboBox_SelectionChanged">
+            <ComboBoxItem>RGB</ComboBoxItem>
+            <ComboBoxItem>Lab</ComboBoxItem>
+        </ComboBox>
+
+        <CheckBox Name="previewCheckBox" Grid.Row="4" Grid.ColumnSpan="3" Margin="3,0" VerticalAlignment="Center" Click="previewCheckBox_Click">Preview on ImageViewer</CheckBox>
+
+        <Button Name="okButton" Grid.Row="5" Grid.ColumnSpan="3" Margin="0,0,90,0" Width="75" Height="21" HorizontalAlignment="Center" VerticalAlignment="Center" Click="okButton_Click">OK</Button>
+        <Button Name="cancelButton" Grid.Row="5" Grid.ColumnSpan="3" Margin="90,0,0,0" Width="75" Height="21" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cancelButton_Click">Cancel</Button>
+    </Grid>
+</Window>

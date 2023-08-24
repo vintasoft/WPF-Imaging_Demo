@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfDemosCommonCode.Barcode.BarcodeReaderToolWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dccb="clr-namespace:WpfDemosCommonCode.Barcode"
+    Title="BarcodeReader Tool" Height="824" Width="296" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel>
+            <DockPanel Margin="5,5,0,0">
+                <Button x:Name="recognizeBarcodeButton" Width="130" Height="28" Margin="0,0,0,2" Click="recognizeBarcodeButton_Click">Recognize barcodes</Button>
+                <ProgressBar x:Name="recognitionProgressBar" Width="130" Height="28" Margin="5,0,0,2"/>
+            </DockPanel>
+            <dccb:WpfBarcodeReaderSettingsControl x:Name="barcodeReaderSettingsControl1"/>
+            <GroupBox Header="Recognition results">
+                <TextBox x:Name="recognitionResultsTextBox" IsReadOnly="True" Height="143" VerticalScrollBarVisibility="Auto" />
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>

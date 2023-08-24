@@ -1,0 +1,9 @@
+﻿<Window x:Class="WpfDemosCommonCode.Barcode.BarcodeWriterToolWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dccb="clr-namespace:WpfDemosCommonCode.Barcode"
+    Title="BarcodeWriter Tool" Height="630" Width="325">
+    <Grid>
+        <dccb:WpfBarcodeWriterSettingsControl x:Name="barcodeWriterSettingsControl"/>
+    </Grid>
+</Window>
