@@ -457,6 +457,7 @@
                             <Separator />
                             <MenuItem Header="Despeckle..." Name="despeckleMenuItem" Click="despeckleMenuItem_Click"/>
                             <MenuItem Header="Deskew Document Image..." Name="deskewDocumentImageMenuItem" Click="deskewDocumentImageMenuItem_Click"/>
+                            <MenuItem Header="Document Perspective Correction" Name="documentPerspectiveCorrectionMenuItem" Click="documentPerspectiveCorrectionMenuItem_Click"/>
                             <MenuItem Header="Deskew Image..." Name="deskewMenuItem" Click="deskewMenuItem_Click"/>
                             <MenuItem Header="Auto Text Orientation..." Name="autoOrientationMenuItem" Click="autoOrientationMenuItem_Click"/>
                             <MenuItem Header="Auto Text Invert..." Name="textBlockInvertMenuItem" Click="textBlockInvertMenuItem_Click"/>

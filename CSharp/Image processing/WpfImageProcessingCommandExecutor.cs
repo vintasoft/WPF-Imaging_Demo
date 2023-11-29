@@ -886,6 +886,19 @@ namespace WpfImagingDemo
 #endif
         }
 
+        /// <summary>
+        /// Executes the DocumentPerspectiveCorrection command.
+        /// </summary>
+        public void ExecuteDocumentPerspectiveCorrectionCommand()
+        {
+#if !REMOVE_DOCCLEANUP_PLUGIN
+            // create the processing command
+            DocumentPerspectiveCorrectionCommand command = new DocumentPerspectiveCorrectionCommand();
+
+            ExecuteProcessingCommand(command);
+#endif
+        }
+
         #endregion
 
         #endregion

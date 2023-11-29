@@ -3094,6 +3094,14 @@ namespace WpfImagingDemo
             _imageProcessingCommandExecutor.ExecuteAdvancedReplaceColorCommand();
         }
 
+        /// <summary>
+        /// Corrects the perspective of image.
+        /// </summary>
+        private void documentPerspectiveCorrectionMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            _imageProcessingCommandExecutor.ExecuteDocumentPerspectiveCorrectionCommand();
+        }
+
         #endregion
 
 

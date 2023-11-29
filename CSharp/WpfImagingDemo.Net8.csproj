@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
@@ -32,10 +32,8 @@
   
 
   <ItemGroup>
-    <PackageReference Include="System.IO.Packaging" Version="7.0.0" />
-
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
-
+    <PackageReference Include="System.IO.Packaging" Version="8.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
 
 
@@ -916,15 +914,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Resource Include="App.ico" />
-    <Content Include="Resources\DotNet7\VintasoftTwainService.exe">
+    <Content Include="Resources\DotNet8\VintasoftTwainService.exe">
       <Link>VintasoftTwainService.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\DotNet7\VintasoftTwainService.dll">
+    <Content Include="Resources\DotNet8\VintasoftTwainService.dll">
       <Link>VintasoftTwainService.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\DotNet7\VintasoftTwainService.runtimeconfig.json">
+    <Content Include="Resources\DotNet8\VintasoftTwainService.runtimeconfig.json">
       <Link>VintasoftTwainService.runtimeconfig.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
