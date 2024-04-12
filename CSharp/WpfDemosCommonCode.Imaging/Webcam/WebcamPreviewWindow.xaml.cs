@@ -351,26 +351,29 @@ namespace WpfDemosCommonCode.Imaging
                 _processingCommand = new CompositeCommand(commands.ToArray());
         }
 
-        private void ChangeProcessingCommandHandler(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// Handles the SelectionChanged event of invertComboBox object.
+        /// </summary>
+        private void invertComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (IsInitialized)
                 BuildProcessingCommand();
         }
 
         /// <summary>
-        /// Handles the TextChanged event of RotateComboBox object.
+        /// Handles the TextChanged event of rotateComboBox object.
         /// </summary>
         private void rotateComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ChangeProcessingCommandHandler(sender, null);
+            invertComboBox_SelectionChanged(sender, null);
         }
 
         /// <summary>
-        /// Handles the CheckChanged event of GrayscaleCheckBox object.
+        /// Handles the CheckChanged event of grayscaleCheckBox object.
         /// </summary>
         private void grayscaleCheckBox_CheckChanged(object sender, RoutedEventArgs e)
         {
-            ChangeProcessingCommandHandler(sender, null);
+            invertComboBox_SelectionChanged(sender, null);
         }
 
         #endregion

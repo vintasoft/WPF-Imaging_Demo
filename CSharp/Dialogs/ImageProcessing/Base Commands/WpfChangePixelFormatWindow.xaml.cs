@@ -56,7 +56,7 @@ namespace WpfImagingDemo
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of ConvertButton object.
+        /// Handles the Click event of convertButton object.
         /// </summary>
         private void convertButton_Click(object sender, RoutedEventArgs e)
         {
@@ -127,7 +127,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {

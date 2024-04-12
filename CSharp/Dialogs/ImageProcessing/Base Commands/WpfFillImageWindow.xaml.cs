@@ -203,7 +203,7 @@ namespace WpfImagingDemo
         #region PRIVATE
 
         /// <summary>
-        /// Handles the ColorChanged event of FillColorPanelControl object.
+        /// Handles the ColorChanged event of fillColorPanelControl object.
         /// </summary>
         private void fillColorPanelControl_ColorChanged(object sender, System.EventArgs e)
         {
@@ -211,7 +211,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PreviewCheckBox object.
+        /// Handles the Click event of previewCheckBox object.
         /// </summary>
         private void previewCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -219,7 +219,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -227,7 +227,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {

@@ -164,7 +164,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Methods
 
         /// <summary>
-        /// Handles the SelectionChanged event of AiNumberComboBox object.
+        /// Handles the SelectionChanged event of aiNumberComboBox object.
         /// </summary>
         void aiNumberComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -183,7 +183,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of AiListView object.
+        /// Handles the SelectionChanged event of aiListView object.
         /// </summary>
         void aiListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -198,7 +198,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Click event of AddButton object.
+        /// Handles the Click event of addButton object.
         /// </summary>
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
@@ -208,7 +208,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Click event of DeleteButton object.
+        /// Handles the Click event of deleteButton object.
         /// </summary>
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
@@ -224,7 +224,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -235,7 +235,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {

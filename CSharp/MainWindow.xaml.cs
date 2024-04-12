@@ -88,12 +88,12 @@ namespace WpfImagingDemo
         string _sourceDecoderName;
 
         /// <summary>
-        /// Determines that file is opened in read-only mode.
+        /// A value indicating whether file is opened in read-only mode.
         /// </summary>
         bool _isFileReadOnlyMode = false;
 
         /// <summary>
-        /// Determines that the Open File Dialog is opened.
+        /// A value indicating whether the Open File Dialog is opened.
         /// </summary>
         bool _isFileDialogOpened = false;
 
@@ -127,17 +127,22 @@ namespace WpfImagingDemo
         #region Save
 
         /// <summary>
-        /// Filename of the image file to save the image collection of the image viewer.
+        /// A name of file, where image collection of image viewer must be saved.
         /// </summary>
         string _saveFilename;
 
         /// <summary>
-        /// Name of the encoder to save the image collection of the image viewer.
+        /// A name that defines image encoder that must be used to save image collection of the image viewer.
         /// </summary>
         string _encoderName;
 
         /// <summary>
-        /// Determines that saving of image must be canceled.
+        /// An image encoder that must be used to save image collection of the image viewer.
+        /// </summary>
+        EncoderBase _encoder;
+
+        /// <summary>
+        /// A value indicating whether image saving must be canceled.
         /// </summary>
         bool _cancelImageSaving = false;
 
@@ -154,7 +159,7 @@ namespace WpfImagingDemo
         #endregion
 
 
-        #region Scan
+        #region TWAIN scanning
 
         /// <summary>
         /// Simple TWAIN manager.
@@ -282,6 +287,14 @@ namespace WpfImagingDemo
         #region Constructors
 
         /// <summary>
+        /// Initializes the <see cref="MainWindow"/> class.
+        /// </summary>
+        static MainWindow()
+        {
+            WsiCodecAssembly.Init();
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
         public MainWindow()
@@ -297,6 +310,7 @@ namespace WpfImagingDemo
             DicomAssemblyLoader.Load();
             PdfAnnotationsAssemblyLoader.Load();
             DocxAssemblyLoader.Load();
+            PdfOfficeAssemblyLoader.Load();
 
             ImagingTypeEditorRegistrator.Register();
 
@@ -668,6 +682,7 @@ namespace WpfImagingDemo
             saveChangesMenuItem.IsEnabled = !isFileOpening && isImageLoaded && canSaveToTheSameSource && !isImageProcessing && !isImageSaving;
             saveAsMenuItem.IsEnabled = !isFileOpening && isImageLoaded && !isImageProcessing && !isImageSaving;
             saveToMenuItem.IsEnabled = !isFileOpening && isImageLoaded && !isImageProcessing && !isImageSaving;
+            saveToDocxMenuItem.IsEnabled = !isFileOpening && isImageLoaded && !isImageProcessing && !isImageSaving;
             saveCurrentImageMenuItem.IsEnabled = !isFileOpening && isImageLoaded && !isImageProcessing && !isImageSaving;
             printMenuItem.IsEnabled = !isFileOpening && isImageLoaded && !isImageProcessing && !isImageSaving;
             closeMenuItem.IsEnabled = imageCount > 0 || isFileOpening;
@@ -887,7 +902,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of DocxLayoutSettingsMenuItem object.
+        /// Handles the Click event of docxLayoutSettingsMenuItem object.
         /// </summary>
         private void docxLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -895,7 +910,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of XlsxLayoutSettingsMenuItem object.
+        /// Handles the Click event of xlsxLayoutSettingsMenuItem object.
         /// </summary>
         private void xlsxLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -1066,6 +1081,44 @@ namespace WpfImagingDemo
             }
 
             _isFileDialogOpened = false;
+        }
+
+        /// <summary>
+        /// Saves image collection to a DOCX file.
+        /// </summary>
+        private void saveToDocxMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+#if !REMOVE_OFFICE_PLUGIN && !REMOVE_PDF_PLUGIN
+            if (_isFileDialogOpened)
+                return;
+            _isFileDialogOpened = true;
+
+            bool saveSingleImage = imageViewer.Images.Count == 1;
+
+            //
+            saveFileDialog1.Filter = "DOCX files|*.docx";
+            if (saveFileDialog1.ShowDialog() == true)
+            {
+                string filename = Path.GetFullPath(saveFileDialog1.FileName);
+                bool isFileExist = File.Exists(filename);
+
+                try
+                {
+                    EncoderBase encoder = new PdfDocxEncoder();
+                    // save image collection to a new source without switching to it
+                    if (!SaveImageCollection(imageViewer.Images, filename, encoder, false))
+                    {
+                        DemosTools.ShowErrorMessage("Image is not saved.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DemosTools.ShowErrorMessage(ex);
+                }
+            }
+
+            _isFileDialogOpened = false;
+#endif
         }
 
         /// <summary>
@@ -4509,6 +4562,7 @@ namespace WpfImagingDemo
         {
             bool result = true;
 
+            _encoder = encoder;
             //
             this.IsImageSaving = true;
 
@@ -4548,6 +4602,12 @@ namespace WpfImagingDemo
                 _saveFilename = null;
 
                 result = false;
+
+                if (_encoder != null)
+                {
+                    _encoder.Dispose();
+                    _encoder = null;
+                }
 
                 DemosTools.ShowErrorMessage(ex);
 
@@ -4639,6 +4699,12 @@ namespace WpfImagingDemo
 
                 _saveFilename = null;
                 _encoderName = null;
+            }
+
+            if (_encoder != null)
+            {
+                _encoder.Dispose();
+                _encoder = null;
             }
 
             // saving of images is finished successfully
@@ -4815,7 +4881,7 @@ namespace WpfImagingDemo
             WpfRectangularSelectionTool rectangularSelectionTool = WpfCompositeVisualTool.FindVisualTool<WpfRectangularSelectionToolWithCopyPaste>(imageViewer.VisualTool);
             if (rectangularSelectionTool != null)
             {
-                if (rectangularSelectionTool.Rectangle != Rect.Empty)
+                if (rectangularSelectionTool.Rectangle.Width > 0 && rectangularSelectionTool.Rectangle.Height > 0)
                     return true;
             }
             return false;
@@ -4882,43 +4948,17 @@ namespace WpfImagingDemo
                     // get selection
                     WpfSelectionRegionBase selection = customSelectionTool.Selection;
 
-                    VintasoftImage clipboardImage;
-
-                    // get selection as graphics path
                     using (System.Drawing.Drawing2D.GraphicsPath path = WpfObjectConverter.CreateDrawingGraphicsPath(selection.GetAsPathGeometry()))
                     {
-                        // get bounding box
-                        System.Drawing.RectangleF bounds = path.GetBounds();
-                        if (bounds.Width <= 0 && bounds.Height <= 0)
-                            return;
-
-                        // get image viewer rectangle
-                        System.Drawing.RectangleF viewerImageRect =
-                            new System.Drawing.RectangleF(0, 0, imageViewer.Image.Width, imageViewer.Image.Height);
-                        // get copy rectangle
-                        System.Drawing.RectangleF viewerCopyRect = System.Drawing.RectangleF.Intersect(bounds, viewerImageRect);
-                        if (viewerCopyRect.Width <= 0 || viewerCopyRect.Height <= 0)
-                            return;
-
-                        // get image from rectangle
-                        using (VintasoftImage image = imageViewer.GetFocusedImageRect(WpfObjectConverter.CreateWindowsRect(viewerCopyRect)))
+                        // crop image
+                        VintasoftImage cropImage = WpfImageProcessingCommandExecutor.CropFocusedImage(imageViewer, new Vintasoft.Imaging.Drawing.Gdi.GdiGraphicsPath(path, false));
+                        if (cropImage != null)
                         {
-                            if (image == null)
-                                return;
-
-                            // create a composite command, which will clear image, overlay image with path and crop the image
-                            CompositeCommand compositeCommand = new CompositeCommand(
-                                new ClearImageCommand(System.Drawing.Color.Transparent),
-                                new ProcessPathCommand(new OverlayCommand(image), new GdiGraphicsPath(path, false)),
-                                new CropCommand(System.Drawing.Rectangle.Round(viewerCopyRect)));
-                            // apply the composite command to the iamge and get the result image
-                            clipboardImage = compositeCommand.Execute(imageViewer.Image);
+                            // copy to the clipboard
+                            Clipboard.SetImage(VintasoftImageConverter.ToBitmapSource(cropImage));
+                            cropImage.Dispose();
                         }
                     }
-
-                    // copy to the clipboard
-                    Clipboard.SetImage(VintasoftImageConverter.ToBitmapSource(clipboardImage));
-                    clipboardImage.Dispose();
                 }
                 catch (Exception ex)
                 {
@@ -5003,14 +5043,18 @@ namespace WpfImagingDemo
                 // if image viewer has focused image
                 if (imageViewer.FocusedIndex != -1)
                 {
-                    // change the focused image to the image from clipboard
-                    imageViewer.Image.SetImage(image);
+                    // insert the image from from clipboard
+                    int index = imageViewer.FocusedIndex;
+                    imageViewer.Images.Insert(index, image);
+                    imageViewer.FocusedIndex = index;
                 }
                 // if image viewer does NOT have focused image
                 else
                 {
                     // add image from clipboard as new image
                     imageViewer.Images.Add(image);
+                    imageViewer.FocusedIndex = imageViewer.Images.Count - 1;
+
                 }
             }
             catch (Exception ex)
@@ -5437,7 +5481,7 @@ namespace WpfImagingDemo
         #region Hot keys
 
         /// <summary>
-        /// Handles the CanExecute event of OpenCommandBinding object.
+        /// Handles the CanExecute event of openCommandBinding object.
         /// </summary>
         private void openCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5445,7 +5489,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of AddCommandBinding object.
+        /// Handles the CanExecute event of addCommandBinding object.
         /// </summary>
         private void addCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5453,7 +5497,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of SaveAsCommandBinding object.
+        /// Handles the CanExecute event of saveAsCommandBinding object.
         /// </summary>
         private void saveAsCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5461,7 +5505,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of CloseCommandBinding object.
+        /// Handles the CanExecute event of closeCommandBinding object.
         /// </summary>
         private void closeCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5469,7 +5513,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of PrintCommandBinding object.
+        /// Handles the CanExecute event of printCommandBinding object.
         /// </summary>
         private void printCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5477,7 +5521,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of ExitCommandBinding object.
+        /// Handles the CanExecute event of exitCommandBinding object.
         /// </summary>
         private void exitCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5485,7 +5529,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of RotateClockwiseCommandBinding object.
+        /// Handles the CanExecute event of rotateClockwiseCommandBinding object.
         /// </summary>
         private void rotateClockwiseCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5493,7 +5537,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of RotateCounterclockwiseCommandBinding object.
+        /// Handles the CanExecute event of rotateCounterclockwiseCommandBinding object.
         /// </summary>
         private void rotateCounterclockwiseCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5501,7 +5545,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of UndoCommandBinding object.
+        /// Handles the CanExecute event of undoCommandBinding object.
         /// </summary>
         private void undoCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5509,7 +5553,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of RedoCommandBinding object.
+        /// Handles the CanExecute event of redoCommandBinding object.
         /// </summary>
         private void redoCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5517,7 +5561,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of CopyImageCommandBinding object.
+        /// Handles the CanExecute event of copyImageCommandBinding object.
         /// </summary>
         private void copyImageCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -5525,7 +5569,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of PasteImageCommandBinding object.
+        /// Handles the CanExecute event of pasteImageCommandBinding object.
         /// </summary>
         private void pasteImageCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {

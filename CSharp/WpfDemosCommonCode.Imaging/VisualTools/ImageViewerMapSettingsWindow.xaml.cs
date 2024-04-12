@@ -173,7 +173,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, RoutedEventArgs e)
         {
@@ -182,7 +182,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -190,7 +190,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of EnabledCheckBox object.
+        /// Handles the Click event of enabledCheckBox object.
         /// </summary>
         private void enabledCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -207,7 +207,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of CanvasPenCheckBox object.
+        /// Handles the Click event of canvasPenCheckBox object.
         /// </summary>
         private void canvasPenCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -217,7 +217,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of VisibleRectPenCheckBox object.
+        /// Handles the Click event of visibleRectPenCheckBox object.
         /// </summary>
         private void visibleRectPenCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -227,7 +227,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ImageBufferPenCheckBox object.
+        /// Handles the Click event of imageBufferPenCheckBox object.
         /// </summary>
         private void imageBufferPenCheckBox_Click(object sender, RoutedEventArgs e)
         {

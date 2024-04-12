@@ -128,7 +128,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Channel object.
+        /// Handles the ValueChanged event of channel object.
         /// </summary>
         private void channel_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -207,7 +207,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -215,7 +215,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -223,7 +223,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of BlendModeComboBox object.
+        /// Handles the SelectionChanged event of blendModeComboBox object.
         /// </summary>
         private void blendModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

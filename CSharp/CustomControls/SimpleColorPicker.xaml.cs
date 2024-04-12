@@ -138,7 +138,7 @@ namespace WpfDemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of ColorComboBox object.
+        /// Handles the SelectionChanged event of colorComboBox object.
         /// </summary>
         private void colorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

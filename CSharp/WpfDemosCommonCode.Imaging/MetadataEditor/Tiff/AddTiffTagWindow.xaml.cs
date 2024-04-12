@@ -96,7 +96,7 @@ namespace WpfDemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -127,7 +127,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -135,7 +135,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of TagDataTypeComboBox object.
+        /// Handles the SelectionChanged event of tagDataTypeComboBox object.
         /// </summary>
         private void tagDataTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -185,7 +185,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of TagIdNumericUpDown object.
+        /// Handles the ValueChanged event of tagIdNumericUpDown object.
         /// </summary>
         private void tagIdNumericUpDown_ValueChanged(object sender, EventArgs e)
         {

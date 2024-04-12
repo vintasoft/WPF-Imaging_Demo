@@ -205,7 +205,7 @@ namespace WpfImagingDemo
 
 
         /// <summary>
-        /// Handles the Click event of PreviewCheckBox object.
+        /// Handles the Click event of previewCheckBox object.
         /// </summary>
         private void previewCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -225,7 +225,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ColorToleranceNumericUpDown object.
+        /// Handles the ValueChanged event of colorToleranceNumericUpDown object.
         /// </summary>
         private void colorToleranceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -233,7 +233,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of ColorSpaceComboBox object.
+        /// Handles the SelectionChanged event of colorSpaceComboBox object.
         /// </summary>
         private void colorSpaceComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -241,7 +241,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -249,7 +249,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {

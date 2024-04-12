@@ -139,7 +139,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ToGrayButton object.
+        /// Handles the Click event of toGrayButton object.
         /// </summary>
         private void toGrayButton_Click(object sender, RoutedEventArgs e)
         {
@@ -148,7 +148,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of InvertButton object.
+        /// Handles the Click event of invertButton object.
         /// </summary>
         private void invertButton_Click(object sender, RoutedEventArgs e)
         {
@@ -157,7 +157,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, RoutedEventArgs e)
         {
@@ -165,7 +165,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -173,7 +173,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ColorNumericUpDown object.
+        /// Handles the ValueChanged event of colorNumericUpDown object.
         /// </summary>
         private void colorNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -188,7 +188,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ColorIndexNumericUpDown object.
+        /// Handles the ValueChanged event of colorIndexNumericUpDown object.
         /// </summary>
         private void colorIndexNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -199,7 +199,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the MouseDoubleClick event of PaletteViewer object.
+        /// Handles the MouseDoubleClick event of paletteViewer object.
         /// </summary>
         private void paletteViewer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

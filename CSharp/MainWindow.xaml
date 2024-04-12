@@ -223,6 +223,7 @@
                         <MenuItem Header="Save" Name="saveChangesMenuItem" Click="saveChangesMenuItem_Click"/>
                         <MenuItem Header="Save As... (Ctrl+ S)" Name="saveAsMenuItem" Click="saveAsMenuItem_Click"/>
                         <MenuItem Header="Save To..." Name="saveToMenuItem" Click="saveToMenuItem_Click" />
+                        <MenuItem Header="Save To Docx..." Name="saveToDocxMenuItem" Click="saveToDocxMenuItem_Click" />
                         <MenuItem Header="Save Current Image To..." Name="saveCurrentImageMenuItem" Click="saveCurrentImageMenuItem_Click" />
                         <MenuItem Header="Close (Ctrl+ W)" Name="closeMenuItem" Click="closeMenuItem_Click"/>
                         <Separator />

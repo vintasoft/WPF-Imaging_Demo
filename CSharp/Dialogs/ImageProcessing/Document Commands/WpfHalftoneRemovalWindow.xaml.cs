@@ -393,7 +393,7 @@ namespace WpfImagingDemo
         #region PRIVATE
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -401,7 +401,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -409,7 +409,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Slider1 object.
+        /// Handles the ValueChanged event of slider1 object.
         /// </summary>
         private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -419,7 +419,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Slider2 object.
+        /// Handles the ValueChanged event of slider2 object.
         /// </summary>
         private void slider2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -429,7 +429,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Slider3 object.
+        /// Handles the ValueChanged event of slider3 object.
         /// </summary>
         private void slider3_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -439,7 +439,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Slider4 object.
+        /// Handles the ValueChanged event of slider4 object.
         /// </summary>
         private void slider4_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -449,7 +449,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Slider5 object.
+        /// Handles the ValueChanged event of slider5 object.
         /// </summary>
         private void slider5_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -459,7 +459,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Slider6 object.
+        /// Handles the ValueChanged event of slider6 object.
         /// </summary>
         private void slider6_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -469,7 +469,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of NumericUpDown1 object.
+        /// Handles the ValueChanged event of numericUpDown1 object.
         /// </summary>
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -478,7 +478,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of NumericUpDown2 object.
+        /// Handles the ValueChanged event of numericUpDown2 object.
         /// </summary>
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
@@ -487,7 +487,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of NumericUpDown3 object.
+        /// Handles the ValueChanged event of numericUpDown3 object.
         /// </summary>
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
@@ -496,7 +496,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of NumericUpDown4 object.
+        /// Handles the ValueChanged event of numericUpDown4 object.
         /// </summary>
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
@@ -505,7 +505,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of NumericUpDown5 object.
+        /// Handles the ValueChanged event of numericUpDown5 object.
         /// </summary>
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
@@ -514,7 +514,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of NumericUpDown6 object.
+        /// Handles the ValueChanged event of numericUpDown6 object.
         /// </summary>
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
@@ -523,7 +523,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ResetButton1 object.
+        /// Handles the Click event of resetButton1 object.
         /// </summary>
         private void resetButton1_Click(object sender, RoutedEventArgs e)
         {
@@ -531,7 +531,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ResetButton2 object.
+        /// Handles the Click event of resetButton2 object.
         /// </summary>
         private void resetButton2_Click(object sender, RoutedEventArgs e)
         {
@@ -539,7 +539,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ResetButton3 object.
+        /// Handles the Click event of resetButton3 object.
         /// </summary>
         private void resetButton3_Click(object sender, RoutedEventArgs e)
         {
@@ -547,7 +547,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ResetButton4 object.
+        /// Handles the Click event of resetButton4 object.
         /// </summary>
         private void resetButton4_Click(object sender, RoutedEventArgs e)
         {
@@ -555,7 +555,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ResetButton5 object.
+        /// Handles the Click event of resetButton5 object.
         /// </summary>
         private void resetButton5_Click(object sender, RoutedEventArgs e)
         {
@@ -563,7 +563,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ResetButton6 object.
+        /// Handles the Click event of resetButton6 object.
         /// </summary>
         private void resetButton6_Click(object sender, RoutedEventArgs e)
         {
@@ -571,7 +571,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AutoThresholdCheckBox object.
+        /// Handles the Click event of autoThresholdCheckBox object.
         /// </summary>
         private void autoThresholdCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -594,7 +594,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PreviewCheckBox object.
+        /// Handles the Click event of previewCheckBox object.
         /// </summary>
         private void previewCheckBox_Click(object sender, RoutedEventArgs e)
         {

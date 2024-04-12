@@ -37,7 +37,7 @@ namespace WpfImagingDemo
         #region Methods
 
         /// <summary>
-        /// Handles the ValueChanged event of DefaultDelayNumericUpDown object.
+        /// Handles the ValueChanged event of defaultDelayNumericUpDown object.
         /// </summary>
         private void defaultDelayNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -45,7 +45,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of StartButton object.
+        /// Handles the Click event of startButton object.
         /// </summary>
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
@@ -56,7 +56,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of StopButton object.
+        /// Handles the Click event of stopButton object.
         /// </summary>
         private void stopButton_Click(object sender, RoutedEventArgs e)
         {

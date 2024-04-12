@@ -375,7 +375,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of RenderingIntentComboBox object.
+        /// Handles the SelectionChanged event of renderingIntentComboBox object.
         /// </summary>
         private void renderingIntentComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -384,7 +384,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of UseBlackPointCompensationCheckBox object.
+        /// Handles the CheckedChanged event of useBlackPointCompensationCheckBox object.
         /// </summary>
         void useBlackPointCompensationCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -393,7 +393,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of PreviewCheckBox object.
+        /// Handles the CheckedChanged event of previewCheckBox object.
         /// </summary>
         private void previewCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {

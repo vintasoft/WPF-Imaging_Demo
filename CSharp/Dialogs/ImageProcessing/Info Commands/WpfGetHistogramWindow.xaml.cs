@@ -91,7 +91,7 @@ namespace WpfImagingDemo
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of CloseButton object.
+        /// Handles the Click event of closeButton object.
         /// </summary>
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -166,7 +166,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the MouseMove event of HistogramImage object.
+        /// Handles the MouseMove event of histogramImage object.
         /// </summary>
         private void histogramImage_MouseMove(object sender, MouseEventArgs e)
         {
@@ -188,7 +188,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the MouseLeave event of HistogramImage object.
+        /// Handles the MouseLeave event of histogramImage object.
         /// </summary>
         private void histogramImage_MouseLeave(object sender, MouseEventArgs e)
         {
@@ -198,7 +198,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of HistogramTypeComboBox object.
+        /// Handles the SelectionChanged event of histogramTypeComboBox object.
         /// </summary>
         private void histogramTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

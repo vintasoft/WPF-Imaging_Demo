@@ -442,7 +442,7 @@ namespace WpfDemosCommonCode.Barcode
         #region PRIVATE
 
         /// <summary>
-        /// Handles the Click event of BarcodeTypesAllOrClear object.
+        /// Handles the Click event of barcodeTypesAllOrClear object.
         /// </summary>
         private void barcodeTypesAllOrClear_Click(object sender, RoutedEventArgs e)
         {
@@ -516,7 +516,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of TrackBarExpectedBarcodes object.
+        /// Handles the ValueChanged event of trackBarExpectedBarcodes object.
         /// </summary>
         private void trackBarExpectedBarcodes_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -527,7 +527,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of TrackBarScanInterval object.
+        /// Handles the ValueChanged event of trackBarScanInterval object.
         /// </summary>
         private void trackBarScanInterval_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

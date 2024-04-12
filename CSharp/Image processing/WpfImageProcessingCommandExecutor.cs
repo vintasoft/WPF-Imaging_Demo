@@ -9,6 +9,7 @@ using Microsoft.Win32;
 
 using Vintasoft.Data;
 using Vintasoft.Imaging;
+using Vintasoft.Imaging.Drawing;
 using Vintasoft.Imaging.Drawing.Gdi;
 using Vintasoft.Imaging.ImageProcessing;
 using Vintasoft.Imaging.ImageProcessing.Color;
@@ -250,7 +251,7 @@ namespace WpfImagingDemo
                 return selectionRect;
             }
         }
-        
+
         #endregion
 
 
@@ -258,6 +259,47 @@ namespace WpfImagingDemo
         #region Methods
 
         #region PUBLIC
+
+        /// <summary>
+        /// Crops focuse image of image viewer by specified path.
+        /// </summary>
+        /// <param name="viewer">The image viewer.</param>
+        /// <param name="path">The path to crop.</param>
+        /// <returns>Cropped image.</returns>
+        public static VintasoftImage CropFocusedImage(WpfImageViewer viewer, IGraphicsPath path)
+        {
+            // get bounding box
+            Rectangle bounds = Rectangle.Round(path.GetBounds());
+            if (bounds.Width <= 0 && bounds.Height <= 0)
+                return null;
+
+            // get image viewer rectangle
+            Rectangle viewerImageRect = new Rectangle(0, 0, viewer.Image.Width, viewer.Image.Height);
+            // get copy rectangle
+            Rectangle viewerCopyRect = Rectangle.Intersect(bounds, viewerImageRect);
+
+            if (viewerCopyRect.Width <= 0 || viewerCopyRect.Height <= 0)
+                return null;
+
+            // get image rect
+            using (VintasoftImage image = viewer.GetFocusedImageRect(new Rect(viewerCopyRect.X, viewerCopyRect.Y, viewerCopyRect.Width, viewerCopyRect.Height)))
+            {
+                if (image == null)
+                    return null;
+
+                // create result image
+                VintasoftImage cropImage = new VintasoftImage(image.Width, image.Height, PixelFormat.Bgra32);
+                cropImage.Clear(Color.Transparent);
+                cropImage.Resolution = viewer.Image.Resolution;
+
+                // overlay uses path
+                ProcessPathCommand processPathCommand = new ProcessPathCommand(new OverlayCommand(image), path);
+                processPathCommand.PathTransform = AffineMatrix.CreateTranslation(-viewerCopyRect.X, -viewerCopyRect.Y);
+                processPathCommand.ExecuteInPlace(cropImage);
+
+                return cropImage;
+            }
+        }
 
         /// <summary>
         /// Executes image processing command asynchronously.
@@ -310,16 +352,18 @@ namespace WpfImagingDemo
                         {
                             if (command is CropCommand)
                             {
-                                // crop to custom selection
-                                command = GetCropToPathCommand(path, pathBounds, (CropCommand)command);
                                 // clear selection
                                 customSelectionTool.Selection = null;
+                                // crop to custom selection
+                                VintasoftImage croppedImage = CropFocusedImage(_viewer, new Vintasoft.Imaging.Drawing.Gdi.GdiGraphicsPath(path, false));
+                                if (croppedImage == null)
+                                    return false;
+                                _viewer.Image.SetImage(croppedImage);
+                                return true;
                             }
-                            else
-                            {
-                                // process path
-                                command = new ProcessPathCommand(command, new GdiGraphicsPath(path, false));
-                            }
+                         
+                            // process path
+                            command = new ProcessPathCommand(command, new GdiGraphicsPath(path, false));
                         }
                         else
                         {

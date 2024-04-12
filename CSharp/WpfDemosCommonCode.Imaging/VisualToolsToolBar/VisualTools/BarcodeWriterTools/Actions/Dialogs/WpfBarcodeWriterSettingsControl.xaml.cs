@@ -590,7 +590,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Common
 
         /// <summary>
-        /// Handles the ValueChanged event of ValueFontSizeNumericUpDown object.
+        /// Handles the ValueChanged event of valueFontSizeNumericUpDown object.
         /// </summary>
         void valueFontSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -601,7 +601,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectedFamilyChanged event of FontFamilySelector object.
+        /// Handles the SelectedFamilyChanged event of fontFamilySelector object.
         /// </summary>
         void fontFamilySelector_SelectedFamilyChanged(object sender, EventArgs e)
         {
@@ -612,7 +612,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of BarsRatioNumericUpDown object.
+        /// Handles the ValueChanged event of barsRatioNumericUpDown object.
         /// </summary>
         void barsRatioNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -622,7 +622,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Checked event of UseOptionalCheckSum object.
+        /// Handles the Checked event of useOptionalCheckSum object.
         /// </summary>
         void useOptionalCheckSum_Checked(object sender, RoutedEventArgs e)
         {
@@ -632,7 +632,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ValueGapNumericUpDown object.
+        /// Handles the ValueChanged event of valueGapNumericUpDown object.
         /// </summary>
         void valueGapNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -642,7 +642,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectedColorChanged event of BackgroundColorPicker object.
+        /// Handles the SelectedColorChanged event of backgroundColorPicker object.
         /// </summary>
         void backgroundColorPicker_SelectedColorChanged(object sender, EventArgs e)
         {
@@ -652,7 +652,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectedColorChanged event of ForegroundColorPicker object.
+        /// Handles the SelectedColorChanged event of foregroundColorPicker object.
         /// </summary>
         void foregroundColorPicker_SelectedColorChanged(object sender, EventArgs e)
         {
@@ -662,7 +662,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of ValueVisibleCheckBox object.
+        /// Handles the CheckedChanged event of valueVisibleCheckBox object.
         /// </summary>
         void valueVisibleCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -680,7 +680,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of ValueAutoLetterSpacingCheckBox object.
+        /// Handles the CheckedChanged event of valueAutoLetterSpacingCheckBox object.
         /// </summary>
         void valueAutoLetterSpacingCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -690,7 +690,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of LinearBarcodeHeight object.
+        /// Handles the ValueChanged event of linearBarcodeHeight object.
         /// </summary>
         void linearBarcodeHeight_ValueChanged(object sender, EventArgs e)
         {
@@ -700,7 +700,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Checked event of EncodingInfoCheckBox object.
+        /// Handles the Checked event of encodingInfoCheckBox object.
         /// </summary>
         void encodingInfoCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -711,7 +711,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of EncodingInfoComboBox object.
+        /// Handles the SelectionChanged event of encodingInfoComboBox object.
         /// </summary>
         void encodingInfoComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -774,7 +774,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of LinearBarcodeTypeComboBox object.
+        /// Handles the SelectionChanged event of linearBarcodeTypeComboBox object.
         /// </summary>
         void linearBarcodeTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -929,7 +929,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of TwoDimensionalBarcodeComboBox object.
+        /// Handles the SelectionChanged event of twoDimensionalBarcodeComboBox object.
         /// </summary>
         void twoDimensionalBarcodeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1015,7 +1015,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of WidthAdjustNumericUpDown object.
+        /// Handles the ValueChanged event of widthAdjustNumericUpDown object.
         /// </summary>
         void widthAdjustNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1025,7 +1025,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of PaddingNumericUpDown object.
+        /// Handles the ValueChanged event of paddingNumericUpDown object.
         /// </summary>
         void paddingNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1035,7 +1035,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of MinWidthNumericUpDown object.
+        /// Handles the ValueChanged event of minWidthNumericUpDown object.
         /// </summary>
         void minWidthNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1045,7 +1045,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of PixelFormatComboBox object.
+        /// Handles the SelectionChanged event of pixelFormatComboBox object.
         /// </summary>
         void pixelFormatComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1055,7 +1055,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the TextChanged event of BarcodeValueTextBox object.
+        /// Handles the TextChanged event of barcodeValueTextBox object.
         /// </summary>
         void barcodeValueTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -1068,7 +1068,7 @@ namespace WpfDemosCommonCode.Barcode
 
 
         /// <summary>
-        /// Handles the SelectionChanged event of BarcodeGroupsTabPages object.
+        /// Handles the SelectionChanged event of barcodeGroupsTabPages object.
         /// </summary>
         void barcodeGroupsTabPages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1192,7 +1192,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Click event of SubsetBarcodeValueButton object.
+        /// Handles the Click event of subsetBarcodeValueButton object.
         /// </summary>
         private void subsetBarcodeValueButton_Click(object sender, RoutedEventArgs e)
         {
@@ -1236,7 +1236,7 @@ namespace WpfDemosCommonCode.Barcode
         #region MSI
 
         /// <summary>
-        /// Handles the SelectionChanged event of MsiChecksumComboBox object.
+        /// Handles the SelectionChanged event of msiChecksumComboBox object.
         /// </summary>
         void msiChecksumComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1250,7 +1250,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Code128
 
         /// <summary>
-        /// Handles the SelectionChanged event of Code128ModeComboBox object.
+        /// Handles the SelectionChanged event of code128ModeComboBox object.
         /// </summary>
         void code128ModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1264,7 +1264,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Telepen
 
         /// <summary>
-        /// Handles the Checked event of EnableTelepenNumericMode object.
+        /// Handles the Checked event of enableTelepenNumericMode object.
         /// </summary>
         void enableTelepenNumericMode_Checked(object sender, RoutedEventArgs e)
         {
@@ -1278,7 +1278,7 @@ namespace WpfDemosCommonCode.Barcode
         #region RSS
 
         /// <summary>
-        /// Handles the Checked event of RssLinkageFlag object.
+        /// Handles the Checked event of rssLinkageFlag object.
         /// </summary>
         void rssLinkageFlag_Checked(object sender, RoutedEventArgs e)
         {
@@ -1288,7 +1288,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Checked event of Rss14StackedOmni object.
+        /// Handles the Checked event of rss14StackedOmni object.
         /// </summary>
         void rss14StackedOmni_Checked(object sender, RoutedEventArgs e)
         {
@@ -1298,7 +1298,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of RssExpandedStackedSegmentPerRow object.
+        /// Handles the SelectionChanged event of rssExpandedStackedSegmentPerRow object.
         /// </summary>
         void rssExpandedStackedSegmentPerRow_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1312,7 +1312,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Postal
 
         /// <summary>
-        /// Handles the ValueChanged event of PostalADMiltiplierNumericUpDown object.
+        /// Handles the ValueChanged event of postalADMiltiplierNumericUpDown object.
         /// </summary>
         void postalADMiltiplierNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1322,7 +1322,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of AustralianPostCustomInfoComboBox object.
+        /// Handles the SelectionChanged event of australianPostCustomInfoComboBox object.
         /// </summary>
         void australianPostCustomInfoComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1336,7 +1336,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Aztec
 
         /// <summary>
-        /// Handles the SelectionChanged event of AztecSymbolComboBox object.
+        /// Handles the SelectionChanged event of aztecSymbolComboBox object.
         /// </summary>
         void aztecSymbolComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1356,7 +1356,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of AztecLayersCountComboBox object.
+        /// Handles the SelectionChanged event of aztecLayersCountComboBox object.
         /// </summary>
         void aztecLayersCountComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1376,7 +1376,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of AztecEncodingModeComboBox object.
+        /// Handles the SelectionChanged event of aztecEncodingModeComboBox object.
         /// </summary>
         void aztecEncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1386,7 +1386,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of AztecErrorCorrectionNumericUpDown object.
+        /// Handles the ValueChanged event of aztecErrorCorrectionNumericUpDown object.
         /// </summary>
         void aztecErrorCorrectionNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1400,7 +1400,7 @@ namespace WpfDemosCommonCode.Barcode
         #region DataMatrix
 
         /// <summary>
-        /// Handles the SelectionChanged event of DatamatrixEncodingModeComboBox object.
+        /// Handles the SelectionChanged event of datamatrixEncodingModeComboBox object.
         /// </summary>
         void datamatrixEncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1410,7 +1410,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of DatamatrixSymbolSizeComboBox object.
+        /// Handles the SelectionChanged event of datamatrixSymbolSizeComboBox object.
         /// </summary>
         void datamatrixSymbolSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1436,7 +1436,7 @@ namespace WpfDemosCommonCode.Barcode
         #region QR
 
         /// <summary>
-        /// Handles the SelectionChanged event of QrEncodingModeComboBox object.
+        /// Handles the SelectionChanged event of qrEncodingModeComboBox object.
         /// </summary>
         void qrEncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1465,7 +1465,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of QrSymbolSizeComboBox object.
+        /// Handles the SelectionChanged event of qrSymbolSizeComboBox object.
         /// </summary>
         void qrSymbolSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1475,7 +1475,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of QrECCLevelComboBox object.
+        /// Handles the SelectionChanged event of qrECCLevelComboBox object.
         /// </summary>
         void qrECCLevelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1489,7 +1489,7 @@ namespace WpfDemosCommonCode.Barcode
         #region MicroQR
 
         /// <summary>
-        /// Handles the SelectionChanged event of MicroQrEncodingModeComboBox object.
+        /// Handles the SelectionChanged event of microQrEncodingModeComboBox object.
         /// </summary>
         void microQrEncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1499,7 +1499,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of MicroQrSymbolSizeComboBox object.
+        /// Handles the SelectionChanged event of microQrSymbolSizeComboBox object.
         /// </summary>
         void microQrSymbolSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1519,7 +1519,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of MicroQrECCLevelComboBox object.
+        /// Handles the SelectionChanged event of microQrECCLevelComboBox object.
         /// </summary>
         void microQrECCLevelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1533,7 +1533,7 @@ namespace WpfDemosCommonCode.Barcode
         #region MaxiCode
 
         /// <summary>
-        /// Handles the ValueChanged event of MaxiCodeResolutonNumericUpDown object.
+        /// Handles the ValueChanged event of maxiCodeResolutonNumericUpDown object.
         /// </summary>
         void maxiCodeResolutonNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1543,7 +1543,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of MaxiCodeEncodingModeComboBox object.
+        /// Handles the SelectionChanged event of maxiCodeEncodingModeComboBox object.
         /// </summary>
         void maxiCodeEncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1567,7 +1567,7 @@ namespace WpfDemosCommonCode.Barcode
         #region PDF417
 
         /// <summary>
-        /// Handles the SelectionChanged event of Pdf417EncodingModeComboBox object.
+        /// Handles the SelectionChanged event of pdf417EncodingModeComboBox object.
         /// </summary>
         void pdf417EncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1577,7 +1577,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of Pdf417ErrorCorrectionComboBox object.
+        /// Handles the SelectionChanged event of pdf417ErrorCorrectionComboBox object.
         /// </summary>
         void pdf417ErrorCorrectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1587,7 +1587,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Pdf417RowsNumericUpDown object.
+        /// Handles the ValueChanged event of pdf417RowsNumericUpDown object.
         /// </summary>
         void pdf417RowsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1597,7 +1597,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Pdf417ColsNumericUpDown object.
+        /// Handles the ValueChanged event of pdf417ColsNumericUpDown object.
         /// </summary>
         void pdf417ColsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1617,7 +1617,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Pdf417RowHeightNumericUpDown object.
+        /// Handles the ValueChanged event of pdf417RowHeightNumericUpDown object.
         /// </summary>
         void pdf417RowHeightNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1627,7 +1627,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the Checked event of Pdf417CompactCheckBox object.
+        /// Handles the Checked event of pdf417CompactCheckBox object.
         /// </summary>
         void pdf417CompactCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -1644,7 +1644,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Micro PDF417
 
         /// <summary>
-        /// Handles the SelectionChanged event of MicroPdf417EncodingModeComboBox object.
+        /// Handles the SelectionChanged event of microPdf417EncodingModeComboBox object.
         /// </summary>
         void microPdf417EncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1654,7 +1654,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of MicroPdf417SymbolSizeComboBox object.
+        /// Handles the SelectionChanged event of microPdf417SymbolSizeComboBox object.
         /// </summary>
         void microPdf417SymbolSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1664,7 +1664,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of MicroPdf417ColumnsNumericUpDown object.
+        /// Handles the ValueChanged event of microPdf417ColumnsNumericUpDown object.
         /// </summary>
         void microPdf417ColumnsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1674,7 +1674,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of MicroPdf417RowHeightNumericUpDown object.
+        /// Handles the ValueChanged event of microPdf417RowHeightNumericUpDown object.
         /// </summary>
         void microPdf417RowHeightNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -1688,7 +1688,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Code 16K
 
         /// <summary>
-        /// Handles the SelectionChanged event of Code16KEncodingModeComboBox object.
+        /// Handles the SelectionChanged event of code16KEncodingModeComboBox object.
         /// </summary>
         void code16KEncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1698,7 +1698,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of Code16KRowsComboBox object.
+        /// Handles the SelectionChanged event of code16KRowsComboBox object.
         /// </summary>
         void code16KRowsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1712,7 +1712,7 @@ namespace WpfDemosCommonCode.Barcode
         #region Han Xin Code
 
         /// <summary>
-        /// Handles the SelectionChanged event of HanXinCodeEncodingModeComboBox object.
+        /// Handles the SelectionChanged event of hanXinCodeEncodingModeComboBox object.
         /// </summary>
         void hanXinCodeEncodingModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1741,7 +1741,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of HanXinCodeSymbolVersionComboBox object.
+        /// Handles the SelectionChanged event of hanXinCodeSymbolVersionComboBox object.
         /// </summary>
         void hanXinCodeSymbolVersionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1751,7 +1751,7 @@ namespace WpfDemosCommonCode.Barcode
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of HanXinCodeECCLevelComboBox object.
+        /// Handles the SelectionChanged event of hanXinCodeECCLevelComboBox object.
         /// </summary>
         void hanXinCodeECCLevelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -65,7 +65,7 @@
 
                     <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">Invert</Label>
 
-                    <ComboBox Name="invertComboBox" Grid.Column="1" Grid.Row="1" Margin="3" IsReadOnly="True" SelectedIndex="0" SelectionChanged="ChangeProcessingCommandHandler">
+                    <ComboBox Name="invertComboBox" Grid.Column="1" Grid.Row="1" Margin="3" IsReadOnly="True" SelectedIndex="0" SelectionChanged="invertComboBox_SelectionChanged">
                         <ComboBoxItem>(none)</ComboBoxItem>
                         <ComboBoxItem>Invert</ComboBoxItem>
                         <ComboBoxItem>Invert RED</ComboBoxItem>

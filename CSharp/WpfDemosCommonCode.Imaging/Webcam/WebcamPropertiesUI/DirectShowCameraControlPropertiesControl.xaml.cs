@@ -252,7 +252,7 @@ namespace WpfDemosCommonCode.Imaging
         #region Sliders
 
         /// <summary>
-        /// Handles the ValueChanged event of ExposureSlider object.
+        /// Handles the ValueChanged event of exposureSlider object.
         /// </summary>
         private void exposureSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -260,7 +260,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of FocusSlider object.
+        /// Handles the ValueChanged event of focusSlider object.
         /// </summary>
         private void focusSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -268,7 +268,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of IrisSlider object.
+        /// Handles the ValueChanged event of irisSlider object.
         /// </summary>
         private void irisSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -276,7 +276,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of PanSlider object.
+        /// Handles the ValueChanged event of panSlider object.
         /// </summary>
         private void panSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -284,7 +284,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of RollSlider object.
+        /// Handles the ValueChanged event of rollSlider object.
         /// </summary>
         private void rollSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -292,7 +292,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of TiltSlider object.
+        /// Handles the ValueChanged event of tiltSlider object.
         /// </summary>
         private void tiltSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -300,7 +300,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ZoomSlider object.
+        /// Handles the ValueChanged event of zoomSlider object.
         /// </summary>
         private void zoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -313,7 +313,7 @@ namespace WpfDemosCommonCode.Imaging
         #region Check boxes
 
         /// <summary>
-        /// Handles the CheckedChanged event of ExposureCheckBox object.
+        /// Handles the CheckedChanged event of exposureCheckBox object.
         /// </summary>
         private void exposureCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -321,7 +321,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of FocusCheckBox object.
+        /// Handles the CheckedChanged event of focusCheckBox object.
         /// </summary>
         private void focusCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -329,7 +329,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of IrisCheckBox object.
+        /// Handles the CheckedChanged event of irisCheckBox object.
         /// </summary>
         private void irisCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -337,7 +337,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of PanCheckBox object.
+        /// Handles the CheckedChanged event of panCheckBox object.
         /// </summary>
         private void panCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -345,7 +345,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of RollCheckBox object.
+        /// Handles the CheckedChanged event of rollCheckBox object.
         /// </summary>
         private void rollCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -353,7 +353,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of TiltCheckBox object.
+        /// Handles the CheckedChanged event of tiltCheckBox object.
         /// </summary>
         private void tiltCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -361,7 +361,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of ZoomCheckBox object.
+        /// Handles the CheckedChanged event of zoomCheckBox object.
         /// </summary>
         private void zoomCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {

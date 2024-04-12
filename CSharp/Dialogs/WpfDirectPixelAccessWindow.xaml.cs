@@ -60,7 +60,7 @@ namespace WpfImagingDemo
 
         // Updates information about selected pixel.
         /// <summary>
-        /// Handles the MouseUp event of Viewer object.
+        /// Handles the MouseUp event of viewer object.
         /// </summary>
         void viewer_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -79,7 +79,7 @@ namespace WpfImagingDemo
 
         // Updates information about focused pixel.
         /// <summary>
-        /// Handles the MouseMove event of Viewer object.
+        /// Handles the MouseMove event of viewer object.
         /// </summary>
         void viewer_MouseMove(object sender, MouseEventArgs e)
         {
@@ -129,7 +129,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SelectInPaletteButton object.
+        /// Handles the Click event of selectInPaletteButton object.
         /// </summary>
         private void selectInPaletteButton_Click(object sender, RoutedEventArgs e)
         {
@@ -192,7 +192,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ChangeRGBComponentsButton object.
+        /// Handles the Click event of changeRGBComponentsButton object.
         /// </summary>
         private void changeRGBComponentsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -329,7 +329,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ColorChannel object.
+        /// Handles the ValueChanged event of colorChannel object.
         /// </summary>
         private void colorChannel_ValueChanged(object sender, EventArgs e)
         {
@@ -347,7 +347,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of IndexNumericUpDown object.
+        /// Handles the ValueChanged event of indexNumericUpDown object.
         /// </summary>
         private void indexNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -360,7 +360,7 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of Gray16LumNumericUpDown object.
+        /// Handles the ValueChanged event of gray16LumNumericUpDown object.
         /// </summary>
         private void gray16LumNumericUpDown_ValueChanged(object sender, EventArgs e)
         {

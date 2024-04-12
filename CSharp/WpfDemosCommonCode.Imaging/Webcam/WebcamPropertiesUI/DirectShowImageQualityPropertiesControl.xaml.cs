@@ -299,7 +299,7 @@ namespace WpfDemosCommonCode.Imaging
         #region Sliders
 
         /// <summary>
-        /// Handles the ValueChanged event of BacklightCompensationSlider object.
+        /// Handles the ValueChanged event of backlightCompensationSlider object.
         /// </summary>
         private void backlightCompensationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -307,7 +307,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of BrightnessSlider object.
+        /// Handles the ValueChanged event of brightnessSlider object.
         /// </summary>
         private void brightnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -315,7 +315,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ColorEnableSlider object.
+        /// Handles the ValueChanged event of colorEnableSlider object.
         /// </summary>
         private void colorEnableSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -323,7 +323,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ContrastSlider object.
+        /// Handles the ValueChanged event of contrastSlider object.
         /// </summary>
         private void contrastSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -331,7 +331,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of GainSlider object.
+        /// Handles the ValueChanged event of gainSlider object.
         /// </summary>
         private void gainSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -339,7 +339,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of GammaSlider object.
+        /// Handles the ValueChanged event of gammaSlider object.
         /// </summary>
         private void gammaSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -347,7 +347,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of HueSlider object.
+        /// Handles the ValueChanged event of hueSlider object.
         /// </summary>
         private void hueSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -355,7 +355,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of SaturationSlider object.
+        /// Handles the ValueChanged event of saturationSlider object.
         /// </summary>
         private void saturationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -363,7 +363,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of SharpnessSlider object.
+        /// Handles the ValueChanged event of sharpnessSlider object.
         /// </summary>
         private void sharpnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -371,7 +371,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of WhiteBalanceSlider object.
+        /// Handles the ValueChanged event of whiteBalanceSlider object.
         /// </summary>
         private void whiteBalanceSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -384,7 +384,7 @@ namespace WpfDemosCommonCode.Imaging
         #region Check boxes
 
         /// <summary>
-        /// Handles the CheckedChanged event of BacklightCompensationCheckBox object.
+        /// Handles the CheckedChanged event of backlightCompensationCheckBox object.
         /// </summary>
         private void backlightCompensationCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -392,7 +392,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of BrightnessCheckBox object.
+        /// Handles the CheckedChanged event of brightnessCheckBox object.
         /// </summary>
         private void brightnessCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -400,7 +400,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of ColorEnableCheckBox object.
+        /// Handles the CheckedChanged event of colorEnableCheckBox object.
         /// </summary>
         private void colorEnableCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -408,7 +408,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of ContrastCheckBox object.
+        /// Handles the CheckedChanged event of contrastCheckBox object.
         /// </summary>
         private void contrastCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -416,7 +416,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of GainCheckBox object.
+        /// Handles the CheckedChanged event of gainCheckBox object.
         /// </summary>
         private void gainCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -424,7 +424,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of GammaCheckBox object.
+        /// Handles the CheckedChanged event of gammaCheckBox object.
         /// </summary>
         private void gammaCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -432,7 +432,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of HueCheckBox object.
+        /// Handles the CheckedChanged event of hueCheckBox object.
         /// </summary>
         private void hueCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -440,7 +440,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of SaturationCheckBox object.
+        /// Handles the CheckedChanged event of saturationCheckBox object.
         /// </summary>
         private void saturationCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -448,7 +448,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of SharpnessCheckBox object.
+        /// Handles the CheckedChanged event of sharpnessCheckBox object.
         /// </summary>
         private void sharpnessCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -456,7 +456,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of WhiteBalanceCheckBox object.
+        /// Handles the CheckedChanged event of whiteBalanceCheckBox object.
         /// </summary>
         private void whiteBalanceCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
