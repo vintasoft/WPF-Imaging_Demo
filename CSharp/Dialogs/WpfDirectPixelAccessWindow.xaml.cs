@@ -64,7 +64,7 @@ namespace WpfImagingDemo
         /// </summary>
         void viewer_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (pixelsGroupBox.IsEnabled == true && _viewer.IsEntireImageLoaded)
+            if (pixelsGroupBox.IsEnabled == true)
             {
                 if (_viewer.FocusedIndex >= 0)
                 {

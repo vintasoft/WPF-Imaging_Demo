@@ -788,7 +788,6 @@ namespace WpfImagingDemo
         {
             VintasoftImage currentImage = imageViewer.Image;
             bool isImageLoaded = currentImage != null;
-            bool isEntireImageLoaded = imageViewer.IsEntireImageLoaded;
             bool isImageProcessing = this.IsImageProcessing;
             bool isImageSaving = this.IsImageSaving;
             bool clipboardContainsImage = Clipboard.ContainsImage();
@@ -805,7 +804,7 @@ namespace WpfImagingDemo
             //
             deleteImageMenuItem.IsEnabled = isImageLoaded && !isImageProcessing && !isImageSaving;
             //
-            editImagePixelsMenuItem.IsEnabled = isEntireImageLoaded && !isImageProcessing && !isImageSaving;
+            editImagePixelsMenuItem.IsEnabled = isImageLoaded && !isImageProcessing && !isImageSaving;
         }
 
         /// <summary>
@@ -1436,7 +1435,20 @@ namespace WpfImagingDemo
         {
             if (editImagePixelsMenuItem.IsChecked == true)
             {
-                OpenDirectPixelAccessWindow();
+                bool answerResult = true;
+                if (!imageViewer.IsEntireImageLoaded)
+                {
+                    VintasoftImage image = imageViewer.Images[imageViewer.FocusedIndex];
+
+                    double megabytesPerPixel = image.BitsPerPixel / 8d / 1024d / 1024d;
+                    double imageMemory = Math.Round(megabytesPerPixel * image.Width * image.Height, 2);
+                    answerResult = MessageBox.Show(
+                        string.Format("Image pixels can be edited only if the whole image is loaded in memory. Current image is not loaded in memory and has size {0}Mb. Do you want to load the whole image in memory?", imageMemory), 
+                        "Pixel direct access", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK;
+                }
+
+                if (answerResult)
+                    OpenDirectPixelAccessWindow();
             }
             else
             {
@@ -3850,9 +3862,6 @@ namespace WpfImagingDemo
             imageLoadingProgressBar.Visibility = Visibility.Collapsed;
 
             this.IsImageLoaded = true;
-
-            if (editImagePixelsMenuItem.IsChecked && !imageViewer.IsEntireImageLoaded)
-                editImagePixelsMenuItem.IsChecked = false;
         }
 
         /// <summary>
