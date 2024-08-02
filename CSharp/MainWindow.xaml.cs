@@ -3119,6 +3119,23 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
+        /// Removes horizontal dotted lines in a document image.
+        /// </summary>
+        private void dottedLineRemovalMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+#if !REMOVE_DOCCLEANUP_PLUGIN
+            WpfPropertyGridConfigWindow dlg = new WpfPropertyGridConfigWindow(imageViewer, new DottedLineRemovalCommand());
+            dlg.IsPreviewEnabled = false;
+            dlg.Owner = this;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dlg.ExpandSupportedPixelFormats = _imageProcessingCommandExecutor.ExpandSupportedPixelFormats;
+
+            if (dlg.ShowProcessingDialog())
+                _imageProcessingCommandExecutor.ExecuteProcessingCommand(dlg.GetProcessingCommand());
+#endif
+        }
+
+        /// <summary>
         /// Removes shapes in a document image.
         /// </summary>
         private void shapeRemovalMenuItem_Click(object sender, RoutedEventArgs e)

@@ -4,7 +4,7 @@
     xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
     xmlns:cc="clr-namespace:WpfImagingDemo"
     xmlns:widcci="clr-namespace:WpfDemosCommonCode.Imaging"
-    Title="VintaSoft WPF Imaging Demo" Width="880" Height="600"        
+    Title="VintaSoft WPF Imaging Demo" Width="880" Height="600"
     Loaded="Window_Loaded"
     KeyUp="Window_KeyUp"
     Closing="Window_Closing"
@@ -277,7 +277,7 @@
                             <MenuItem Header="Two Continuous Rows" Name="twoContinuousRowsMenuItem" Click="ImageDisplayMode_Click"/>
                             <MenuItem Header="Two Continuous Columns" Name="twoContinuousColumnsMenuItem" Click="ImageDisplayMode_Click"/>
                         </MenuItem>
-                        
+
                         <MenuItem Header="Image Scale Mode" Name="imageScaleModeMenuItem">
                             <MenuItem Header="Normal" Name="normalImageMenuItem" Click="ImageScale_Click"/>
                             <MenuItem Header="Best fit" Name="bestFitMenuItem" Click="ImageScale_Click"/>
@@ -470,6 +470,7 @@
                             <MenuItem Header="Hole Punch Filling..." Name="holePunchFillingMenuItem" Click="holePunchFillingMenuItem_Click"/>
                             <MenuItem Header="Hole Punch Removal..." Name="holePunchRemovalMenuItem" Click="holePunchRemovalMenuItem_Click"/>
                             <MenuItem Header="Line Removal..." Name="lineRemovalMenuItem" Click="lineRemovalMenuItem_Click"/>
+                            <MenuItem Header="Dotted Line Removal..." Name="dottedLineRemovalMenuItem" Click="dottedLineRemovalMenuItem_Click"/>
                             <MenuItem Header="Shape Removal..." Name="shapeRemovalMenuItem" Click="shapeRemovalMenuItem_Click"/>
                             <MenuItem Header="Color Noise Clear..." Name="colorNoiseClearMenuItem" Click="colorNoiseClearMenuItem_Click" />
                             <MenuItem Header="Advanced Replace Color..." Name="advancedReplaceColorMenuItem" Click="advancedReplaceColorMenuItem_Click" />
@@ -518,7 +519,7 @@
                         <Separator />
                         <MenuItem Header="Load Clipping Paths From Metadata" Name="loadPathsFromMetadataMenuItem" Click="loadPathsFromMetadataMenuItem_Click"/>
 
-                       </MenuItem>
+                    </MenuItem>
 
                     <MenuItem Header="Tools" Name="toolsMenuItem" >
                         <MenuItem Header="Show Animation..." Name="animationMenuItem" Click="animationMenuItem_Click"/>
