@@ -1669,16 +1669,8 @@ namespace WpfImagingDemo
         /// </summary>
         private void RotateViewClockwise()
         {
-            if (imageViewer.ImageRotationAngle != 270)
-            {
-                imageViewer.ImageRotationAngle += 90;
-                thumbnailViewer.ImageRotationAngle += 90;
-            }
-            else
-            {
-                imageViewer.ImageRotationAngle = 0;
-                thumbnailViewer.ImageRotationAngle = 0;
-            }
+            imageViewer.RotateViewClockwise();
+            thumbnailViewer.RotateViewClockwise();
         }
 
         /// <summary>
@@ -1686,16 +1678,8 @@ namespace WpfImagingDemo
         /// </summary>
         private void RotateViewCounterClockwise()
         {
-            if (imageViewer.ImageRotationAngle != 0)
-            {
-                imageViewer.ImageRotationAngle -= 90;
-                thumbnailViewer.ImageRotationAngle -= 90;
-            }
-            else
-            {
-                imageViewer.ImageRotationAngle = 270;
-                thumbnailViewer.ImageRotationAngle = 270;
-            }
+            imageViewer.RotateViewCounterClockwise();
+            thumbnailViewer.RotateViewCounterClockwise();
         }
 
         /// <summary>
