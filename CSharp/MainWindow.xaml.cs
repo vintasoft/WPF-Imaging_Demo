@@ -428,7 +428,9 @@ namespace WpfImagingDemo
             // specify that image collection of image viewer must handle layout settings requests
             _imageCollectionDocxLayoutSettingsManager = new ImageCollectionDocxLayoutSettingsManager(imageViewer.Images);
             _imageCollectionXlsxLayoutSettingsManager = new ImageCollectionXlsxLayoutSettingsManager(imageViewer.Images);
-#else
+#endif
+
+#if REMOVE_OFFICE_PLUGIN
             documentLayoutSettingsMenuItem.Visibility = Visibility.Collapsed;
 #endif
 
