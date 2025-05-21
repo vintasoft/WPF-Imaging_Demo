@@ -28,6 +28,8 @@ using Vintasoft.Imaging.Metadata;
 using Vintasoft.Imaging.Print;
 using Vintasoft.Imaging.Undo;
 using Vintasoft.Imaging.Codecs.Decoders;
+using Vintasoft.Imaging.Drawing.Gdi;
+using Vintasoft.Imaging.Drawing;
 
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UIActions;
@@ -49,8 +51,6 @@ using WpfDemosCommonCode.Pdf;
 using WpfDemosCommonCode.Twain;
 
 using WpfDemosCommonCode.Barcode;
-using Vintasoft.Imaging.Drawing.Gdi;
-using Vintasoft.Imaging.Drawing;
 
 namespace WpfImagingDemo
 {
@@ -303,6 +303,9 @@ namespace WpfImagingDemo
             Vintasoft.Imaging.ImagingGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
 
             InitializeComponent();
+
+            // set view buffer to 32 MPX
+            imageViewer.ViewerBufferSize = 32;
 
             Jbig2AssemblyLoader.Load();
             Jpeg2000AssemblyLoader.Load();
