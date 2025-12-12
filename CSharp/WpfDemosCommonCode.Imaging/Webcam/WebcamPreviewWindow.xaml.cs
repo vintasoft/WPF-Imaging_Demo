@@ -48,6 +48,11 @@ namespace WpfDemosCommonCode.Imaging
         /// </summary>
         ProcessingCommandBase _processingCommand;
 
+        /// <summary>
+        /// Indicates when image was painted.
+        /// </summary>
+        bool _imagePainted = false;
+
         #endregion
 
 
@@ -72,27 +77,29 @@ namespace WpfDemosCommonCode.Imaging
             _imageCaptureDeviceMonitor = new ImageCaptureDevicesMonitor();
             _imageCaptureDeviceMonitor.CaptureDevicesChanged += new EventHandler<ImageCaptureDevicesChangedEventArgs>(DeviceMonitor_CaptureDevicesChanged);
 
-            List<uint> imageCaptureFormatSizes = new List<uint>();
+            HashSet<string> imageCaptureFormatKeys = new HashSet<string>();
             // for each supported format
             for (int i = 0; i < _imageCaptureDevice.SupportedFormats.Count; i++)
             {
+                ImageCaptureFormat captureFormat = _imageCaptureDevice.SupportedFormats[i];
+
                 // if format has bit depth less or equal than 12 bit
-                if (_imageCaptureDevice.SupportedFormats[i].BitsPerPixel <= 12)
+                if (captureFormat.BitsPerPixel <= 12)
                     // ignore formats with bit depth less or equal than 12 bit because they may cause issues on Windows 8
                     continue;
-
-                uint imageCaptureFormatSize = (uint)(_imageCaptureDevice.SupportedFormats[i].Width | (_imageCaptureDevice.SupportedFormats[i].Height << 16));
-                if (!imageCaptureFormatSizes.Contains(imageCaptureFormatSize))
+                string imageCaptureFormatSKey = captureFormat.Width + "X" + captureFormat.Height + " " + captureFormat.FramesPerSecond;
+                if (!imageCaptureFormatKeys.Contains(imageCaptureFormatSKey))
                 {
-                    imageCaptureFormatSizes.Add(imageCaptureFormatSize);
-
-                    formatsComboBox.Items.Add(_imageCaptureDevice.SupportedFormats[i]);
+                    imageCaptureFormatKeys.Add(imageCaptureFormatSKey);
+                    formatsComboBox.Items.Add(captureFormat);
                 }
             }
 
             formatsComboBox.SelectedItem = _imageCaptureDevice.DesiredFormat;
 
             invertComboBox.SelectedIndex = 0;
+
+            videoPreviewImageViewer.ImagePainted += VideoPreviewImageViewer_ImagePainted;
         }
 
         #endregion
@@ -176,6 +183,16 @@ namespace WpfDemosCommonCode.Imaging
         #region Camera
 
         /// <summary>
+        /// Handles the ImagePainted event of the VideoPreviewImageViewer control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ImageLoadedEventArgs"/> instance containing the event data.</param>
+        private void VideoPreviewImageViewer_ImagePainted(object sender, ImageLoadedEventArgs e)
+        {
+            _imagePainted = true;
+        }
+
+        /// <summary>
         /// Starts capturing from camera.
         /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -202,23 +219,23 @@ namespace WpfDemosCommonCode.Imaging
         /// </summary>       
         private void CaptureSource_CaptureCompleted(object sender, ImageCaptureCompletedEventArgs e)
         {
-            // save reference to the previously captured image
-            VintasoftImage oldImage = videoPreviewImageViewer.Image;
+            // if previous image was painted
+            if (videoPreviewImageViewer.Image == null || _imagePainted)
+            {
+                // get captured image
+                VintasoftImage newImage = e.GetCapturedImage();
 
-            // get captured image
-            VintasoftImage newImage = e.GetCapturedImage();
+                // apply processing
+                if (_processingCommand != null)
+                    _processingCommand.ExecuteInPlace(newImage);
 
-            // apply processing
-            if (_processingCommand != null)
-                _processingCommand.ExecuteInPlace(newImage);
-
-            // show captured image in the preview viewer           
-            videoPreviewImageViewer.Image = newImage;
-
-            // if previously captured image is exist
-            if (oldImage != null)
-                // dispose previously captured image
-                oldImage.Dispose();
+                // show captured image in the preview viewer           
+                _imagePainted = false;
+                if (videoPreviewImageViewer.Image != null)
+                    videoPreviewImageViewer.Image.SetImage(newImage);
+                else
+                    videoPreviewImageViewer.Image = newImage;
+            }
 
             // if capture source is started
             if (_imageCaptureSource.State == ImageCaptureState.Started)
