@@ -76,7 +76,9 @@ namespace WpfDemosCommonCode.Barcode
         /// </summary>
         static WpfBarcodeWriterTool()
         {
+#if !REMOVE_BARCODE_SDK
             Vintasoft.Barcode.WpfAssembly.Init();
+#endif
         }
 
         /// <summary>

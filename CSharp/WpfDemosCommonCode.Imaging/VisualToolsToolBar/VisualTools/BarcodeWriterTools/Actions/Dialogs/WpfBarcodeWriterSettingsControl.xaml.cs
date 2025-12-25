@@ -704,18 +704,18 @@ namespace WpfDemosCommonCode.Barcode
         /// </summary>
         void encodingInfoCheckBox_Checked(object sender, RoutedEventArgs e)
         {
+#if !REMOVE_BARCODE_SDK
             try
             {
-#if !REMOVE_BARCODE_SDK
                 encodingInfoComboBox.IsEnabled = encodingInfoCheckBox.IsChecked.Value;
-#endif
-                EncodeValue();
+            EncodeValue();
             }
             catch
             {
                 MessageBox.Show(string.Format("Barcode {0} is not supports encoding info.", BarcodeWriterSettings.Barcode));
                 encodingInfoCheckBox.IsChecked = false;
             }
+#endif
         }
 
         /// <summary>
