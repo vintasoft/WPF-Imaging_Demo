@@ -41,16 +41,16 @@ using Vintasoft.Imaging.Wpf.UI.Undo;
 using Vintasoft.Imaging.Wpf.UI.VisualTools;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-using WpfDemosCommonCode;
-using WpfDemosCommonCode.Imaging;
-using WpfDemosCommonCode.Imaging.Codecs;
+using WpfCommonCode;
+using WpfCommonCode.Imaging;
+using WpfCommonCode.Imaging.Codecs;
 #if !REMOVE_PDF_PLUGIN
 using Vintasoft.Imaging.Pdf;
-using WpfDemosCommonCode.Pdf;
+using WpfCommonCode.Pdf;
 #endif
-using WpfDemosCommonCode.Twain;
+using WpfCommonCode.Twain;
 
-using WpfDemosCommonCode.Barcode;
+using WpfCommonCode.Barcode;
 
 namespace WpfImagingDemo
 {

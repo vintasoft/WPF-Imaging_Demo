@@ -1,8 +1,8 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.PaletteWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.PaletteWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
-    xmlns:uc="clr-namespace:WpfDemosCommonCode.CustomControls"
+    xmlns:uc="clr-namespace:WpfCommonCode.CustomControls"
     Title="Palette" Height="510" Width="420">
     <Grid Name="rootGrid">
         <Grid.RowDefinitions>

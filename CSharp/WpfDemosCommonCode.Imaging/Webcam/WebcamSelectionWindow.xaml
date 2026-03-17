@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.WebcamSelectionWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.WebcamSelectionWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Image capture devices" Height="124" Width="432" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">

@@ -4,9 +4,9 @@ using System.Windows.Media.Imaging;
 
 using Vintasoft.Barcode;
 
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode.Imaging;
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// Contains information about <see cref="WpfBarcodeReaderTool"/>, which is used in <see cref="VisualToolsToolBar"/>.

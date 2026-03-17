@@ -1,7 +1,7 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// A window for barcode writer tool.

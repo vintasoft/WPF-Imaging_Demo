@@ -3,7 +3,7 @@
 using Vintasoft.Imaging;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to specify parameters of new image.

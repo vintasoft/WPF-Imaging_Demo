@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace WpfDemosCommonCode.CustomControls
+namespace WpfCommonCode.CustomControls
 {
     /// <summary>
     /// A control that allows to select color.

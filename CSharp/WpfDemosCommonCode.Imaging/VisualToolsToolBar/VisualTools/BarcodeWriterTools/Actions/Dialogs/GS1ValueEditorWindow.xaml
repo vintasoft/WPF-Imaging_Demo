@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfDemosCommonCode.Barcode.GS1ValueEditorWindow"
+﻿<Window x:Class="WpfCommonCode.Barcode.GS1ValueEditorWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="GS1 value editor" Height="400" Width="576" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
@@ -10,7 +10,7 @@ using Vintasoft.Imaging.ImageProcessing;
 using Vintasoft.Imaging.ImageProcessing.Document;
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode;
+using WpfCommonCode;
 
 
 namespace WpfImagingDemo

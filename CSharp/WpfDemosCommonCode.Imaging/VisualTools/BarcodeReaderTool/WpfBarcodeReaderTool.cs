@@ -18,7 +18,7 @@ using Vintasoft.Barcode;
 #endif
 
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// Visual tool for barcode recognition on image in image viewer.

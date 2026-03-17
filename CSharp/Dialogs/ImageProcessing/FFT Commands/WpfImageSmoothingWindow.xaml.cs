@@ -7,7 +7,7 @@ using Vintasoft.Imaging.ImageProcessing.Fft.Filtering;
 using Vintasoft.Imaging.ImageProcessing.Fft.Filters;
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode;
+using WpfCommonCode;
 
 namespace WpfImagingDemo
 {

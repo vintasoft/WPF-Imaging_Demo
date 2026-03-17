@@ -1,7 +1,7 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.MetadataEditorWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.MetadataEditorWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:Imaging="clr-namespace:WpfDemosCommonCode.Imaging"
+    xmlns:Imaging="clr-namespace:WpfCommonCode.Imaging"
     xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     Title="Metadata Editor" Height="598" MinHeight="380" Width="800" MinWidth="520" WindowStartupLocation="CenterScreen">
     <Grid>

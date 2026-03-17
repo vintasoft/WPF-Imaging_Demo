@@ -7,10 +7,10 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.Wpf;
 using Vintasoft.Barcode;
 
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode.Imaging;
 
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// Contains information about <see cref="WpfBarcodeWriterTool"/>, which is used in <see cref="VisualToolsToolBar"/>.

@@ -1,7 +1,7 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.DirectShowWebcamPropertiesWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.DirectShowWebcamPropertiesWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:cc="clr-namespace:WpfDemosCommonCode.Imaging"
+    xmlns:cc="clr-namespace:WpfCommonCode.Imaging"
     Title="" MinHeight="433" Height="434" Width="822" MinWidth="590">
     <Grid>
         <Grid.RowDefinitions>

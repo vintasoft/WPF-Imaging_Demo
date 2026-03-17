@@ -12,7 +12,7 @@ using Vintasoft.Imaging.Media;
 using Vintasoft.Imaging.Wpf.UI;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to preview image from webcam, change webcam settings and

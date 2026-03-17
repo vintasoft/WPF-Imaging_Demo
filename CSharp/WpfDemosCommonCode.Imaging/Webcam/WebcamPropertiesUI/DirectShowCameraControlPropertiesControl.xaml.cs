@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using Vintasoft.Imaging.Media;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A control that allows to change the camera control properties.

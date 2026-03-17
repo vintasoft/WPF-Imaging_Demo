@@ -5,7 +5,7 @@ using System.Windows;
 using Vintasoft.Barcode; 
 #endif
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// GetSizeWindow logic.

@@ -7,7 +7,7 @@ using Vintasoft.Imaging.ImageProcessing;
 using Vintasoft.Imaging.ImageProcessing.Color;
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode;
+using WpfCommonCode;
 
 namespace WpfImagingDemo
 {

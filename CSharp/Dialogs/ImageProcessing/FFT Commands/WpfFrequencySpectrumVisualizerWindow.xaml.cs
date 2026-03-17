@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,7 +7,7 @@ using Vintasoft.Imaging.ImageProcessing;
 using Vintasoft.Imaging.ImageProcessing.Fft;
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode;
+using WpfCommonCode;
 
 namespace WpfImagingDemo
 {

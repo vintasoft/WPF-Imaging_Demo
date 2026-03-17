@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Text;
 using System.Windows;
@@ -7,7 +7,7 @@ using Vintasoft.Imaging.Codecs.ImageFiles.Tiff;
 using Vintasoft.Imaging.Metadata;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     public class TiffTagMetadataConverter
     {

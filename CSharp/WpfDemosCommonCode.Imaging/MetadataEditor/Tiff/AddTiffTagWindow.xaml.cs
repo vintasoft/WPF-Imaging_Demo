@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using Vintasoft.Imaging.Codecs.ImageFiles.Tiff;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to add new TIFF tag to a TIFF image.

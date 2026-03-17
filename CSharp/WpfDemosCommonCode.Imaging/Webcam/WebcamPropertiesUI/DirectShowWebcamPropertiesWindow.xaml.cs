@@ -2,7 +2,7 @@
 
 using Vintasoft.Imaging.Media;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to change the webcam settings.

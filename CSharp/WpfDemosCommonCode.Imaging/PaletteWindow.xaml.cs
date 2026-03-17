@@ -6,9 +6,9 @@ using System.Windows.Media;
 
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode.CustomControls;
+using WpfCommonCode.CustomControls;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to view and edit an image palette.

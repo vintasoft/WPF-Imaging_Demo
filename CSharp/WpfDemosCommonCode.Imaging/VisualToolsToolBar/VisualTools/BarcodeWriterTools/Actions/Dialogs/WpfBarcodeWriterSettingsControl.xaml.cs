@@ -12,9 +12,9 @@ using Vintasoft.Barcode.GS1;
 using Vintasoft.Barcode.SymbologySubsets;
 #endif
 
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode.Imaging;
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// A control that contains settings of barcode writer.

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfDemosCommonCode.Imaging.DirectShowCameraControlPropertiesControl"
+﻿<UserControl x:Class="WpfCommonCode.Imaging.DirectShowCameraControlPropertiesControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     MinHeight="268" Height="Auto"

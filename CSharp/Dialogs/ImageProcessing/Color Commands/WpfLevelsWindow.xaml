@@ -1,7 +1,7 @@
 ﻿<Window x:Class="WpfImagingDemo.WpfLevelsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    xmlns:CustomControls="clr-namespace:WpfCommonCode.CustomControls"
     Title="Levels" Height="285" Width="532"
     ResizeMode="NoResize">
     <Grid Margin="4">

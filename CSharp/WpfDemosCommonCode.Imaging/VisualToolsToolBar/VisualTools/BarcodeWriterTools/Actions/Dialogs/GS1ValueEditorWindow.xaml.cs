@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using Vintasoft.Barcode.GS1; 
 #endif
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// A window that allows to edit the GS1 value.

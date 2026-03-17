@@ -8,7 +8,7 @@ using Vintasoft.Barcode.BarcodeInfo;
 using Vintasoft.Barcode.GS1;
 #endif
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// A windows for barcode reader tool.

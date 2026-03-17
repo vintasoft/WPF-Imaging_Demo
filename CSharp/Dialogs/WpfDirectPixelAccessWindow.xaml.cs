@@ -7,9 +7,9 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.ImageColors;
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode;
-using WpfDemosCommonCode.CustomControls;
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode;
+using WpfCommonCode.CustomControls;
+using WpfCommonCode.Imaging;
 
 
 namespace WpfImagingDemo

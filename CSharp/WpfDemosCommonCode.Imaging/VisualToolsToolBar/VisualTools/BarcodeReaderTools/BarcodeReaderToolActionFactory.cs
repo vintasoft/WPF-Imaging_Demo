@@ -1,8 +1,8 @@
 ﻿using System.Windows.Media.Imaging;
 
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode.Imaging;
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// Creates visual tool action, which allows to enable/disable visual tool <see cref="WpfBarcodeReaderTool"/> in image viewer, and adds action to the toolstrip.

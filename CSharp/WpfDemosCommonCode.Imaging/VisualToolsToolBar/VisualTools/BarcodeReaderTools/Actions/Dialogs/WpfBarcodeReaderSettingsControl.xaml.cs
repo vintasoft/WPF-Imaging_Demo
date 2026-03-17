@@ -7,7 +7,7 @@ using Vintasoft.Barcode;
 using Vintasoft.Barcode.SymbologySubsets;
 #endif
 
-namespace WpfDemosCommonCode.Barcode
+namespace WpfCommonCode.Barcode
 {
     /// <summary>
     /// A control that contains setting of barcode reader.

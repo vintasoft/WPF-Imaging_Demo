@@ -6,7 +6,7 @@ using System.Windows;
 using Vintasoft.Imaging.Media;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to select the webcam from webcam list.
