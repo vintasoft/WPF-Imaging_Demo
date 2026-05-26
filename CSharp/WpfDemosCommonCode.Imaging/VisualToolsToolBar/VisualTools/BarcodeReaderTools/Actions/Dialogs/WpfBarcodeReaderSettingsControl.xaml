@@ -27,10 +27,10 @@
             <GroupBox Header="Expected barcodes" Name="groupBox2" Height="85" Width="140">
                 <DockPanel Name="dockPanel14">
                     <DockPanel Name="dockPanel16" Height="36" DockPanel.Dock="Top">
-                        <Slider Name="trackBarExpectedBarcodes" ValueChanged="trackBarExpectedBarcodes_ValueChanged" Height="24" Maximum="40" Minimum="1" SmallChange="1" Value="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" IsSelectionRangeEnabled="False" />
+                        <Slider Name="trackBarExpectedBarcodes" ValueChanged="trackBarExpectedBarcodes_ValueChanged" Height="24" Maximum="100" Minimum="0" SmallChange="1" Value="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" IsSelectionRangeEnabled="False" />
                     </DockPanel>
                     <DockPanel Name="dockPanel17">
-                        <Label Name="labelExpectedBarcodes" HorizontalAlignment="Center" Width="25">1</Label>
+                        <Label Name="labelExpectedBarcodes" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="45">1</Label>
                     </DockPanel>
                 </DockPanel>
             </GroupBox>

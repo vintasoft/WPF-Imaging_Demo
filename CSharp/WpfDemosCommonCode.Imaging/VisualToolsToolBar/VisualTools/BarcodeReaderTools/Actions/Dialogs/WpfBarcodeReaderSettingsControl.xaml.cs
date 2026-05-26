@@ -522,7 +522,12 @@ namespace WpfCommonCode.Barcode
         {
 #if !REMOVE_BARCODE_SDK
             if (labelExpectedBarcodes != null)
-                labelExpectedBarcodes.Content = trackBarExpectedBarcodes.Value; 
+            {
+                if (trackBarExpectedBarcodes.Value == 0)
+                    labelExpectedBarcodes.Content = "AUTO";
+                else
+                    labelExpectedBarcodes.Content = trackBarExpectedBarcodes.Value;
+            }
 #endif
         }
 
