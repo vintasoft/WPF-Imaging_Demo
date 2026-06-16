@@ -291,7 +291,20 @@ namespace WpfImagingDemo
         /// </summary>
         static MainWindow()
         {
-            WsiCodecAssembly.Init();
+            Jbig2AssemblyLoader.Load();
+            Jpeg2000AssemblyLoader.Load();
+            RawAssemblyLoader.Load();
+            DicomAssemblyLoader.Load();
+            PdfAnnotationsAssemblyLoader.Load();
+            DocxAssemblyLoader.Load();
+            PdfOfficeAssemblyLoader.Load();
+            WsiCodecAssemblyLoader.Load();
+            CadCodecAssemblyLoader.Load();
+
+            ImagingTypeEditorRegistrator.Register();
+
+            // set CustomFontProgramsController for all opened documents
+            CustomFontProgramsController.SetDefaultFontProgramsController();
         }
 
         /// <summary>
@@ -305,17 +318,7 @@ namespace WpfImagingDemo
             InitializeComponent();
 
             // set view buffer to 32 MPX
-            imageViewer.ViewerBufferSize = 32;
-
-            Jbig2AssemblyLoader.Load();
-            Jpeg2000AssemblyLoader.Load();
-            RawAssemblyLoader.Load();
-            DicomAssemblyLoader.Load();
-            PdfAnnotationsAssemblyLoader.Load();
-            DocxAssemblyLoader.Load();
-            PdfOfficeAssemblyLoader.Load();
-
-            ImagingTypeEditorRegistrator.Register();
+            imageViewer.ViewerBufferSize = 32;          
 
             // load XPS codec
             DemosTools.LoadXpsCodec();
@@ -399,9 +402,6 @@ namespace WpfImagingDemo
             DemosTools.SetTestFilesFolder(openFileDialog1);
 
             DocumentPasswordWindow.EnableAuthentication(imageViewer);
-
-            // set CustomFontProgramsController for all opened PDF documents
-            CustomFontProgramsController.SetDefaultFontProgramsController();
 
             SelectionVisualToolActionFactory.CreateActions(visualToolsToolBar);
             MeasurementVisualToolActionFactory.CreateActions(visualToolsToolBar);
