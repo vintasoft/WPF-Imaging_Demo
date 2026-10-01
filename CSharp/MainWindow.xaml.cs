@@ -266,16 +266,6 @@ namespace WpfImagingDemo
         bool _isVisualToolChanging = false;
 
         /// <summary>
-        /// Manages the layout settings of DOCX document image collections.
-        /// </summary>
-        ImageCollectionDocxLayoutSettingsManager _imageCollectionDocxLayoutSettingsManager;
-
-        /// <summary>
-        /// Manages the layout settings of XLSX document image collections.
-        /// </summary>
-        ImageCollectionXlsxLayoutSettingsManager _imageCollectionXlsxLayoutSettingsManager;
-
-        /// <summary>
         /// Location of selection context menu.
         /// </summary>
         Point _selectionContextMenuStripLocation;
@@ -300,6 +290,7 @@ namespace WpfImagingDemo
             PdfOfficeAssemblyLoader.Load();
             WsiCodecAssemblyLoader.Load();
             CadCodecAssemblyLoader.Load();
+            EmailCodecAssemblyLoader.Load();
 
             ImagingTypeEditorRegistrator.Register();
 
@@ -431,12 +422,6 @@ namespace WpfImagingDemo
                 new XlsxRenderingSettings());
 #endif
 
-#if !REMOVE_OFFICE_PLUGIN
-            // specify that image collection of image viewer must handle layout settings requests
-            _imageCollectionDocxLayoutSettingsManager = new ImageCollectionDocxLayoutSettingsManager(imageViewer.Images);
-            _imageCollectionXlsxLayoutSettingsManager = new ImageCollectionXlsxLayoutSettingsManager(imageViewer.Images);
-#endif
-
 #if REMOVE_OFFICE_PLUGIN
             documentLayoutSettingsMenuItem.Visibility = Visibility.Collapsed;
 #endif
@@ -444,9 +429,14 @@ namespace WpfImagingDemo
             // initialize color management
             ColorManagementHelper.EnableColorManagement(imageViewer);
 
+            // specify that SDK can download external resources when loading a document
+            ImagingEnvironment.ExternalResourceManager.AllowAccessToExternalResources = true;
+            // subscribe to the ExternalResourceManager.CreatingResourceStream event
+            ImagingEnvironment.ExternalResourceManager.CreatingResourceStream += ExternalResourceManager_CreatingResourceStream;
+
             // update the UI
             UpdateUI();
-        }
+        }       
 
         #endregion
 
@@ -627,6 +617,28 @@ namespace WpfImagingDemo
 
 
         #region UI state
+
+        /// <summary>
+        /// Handles the CreatingResourceStream event of the ExternalResourceManager.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ExternalResourceStreamEventArgs"/> instance containing the event data.</param>
+        private void ExternalResourceManager_CreatingResourceStream(object sender, ExternalResourceStreamEventArgs e)
+        {
+            if (!e.Uri.IsFile)
+                Dispatcher.Invoke(new ParameterizedThreadStart(SetStatus), string.Format("Downloading file '{0}'...", e.Uri));
+        }
+
+        /// <summary>
+        /// Sets the status.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SetStatus(object text)
+        {
+            imageLoadingStatusLabel.Visibility = Visibility.Visible;
+            imageLoadingStatusLabel.Content = text.ToString();
+        }
+
 
         /// <summary>
         /// Updates the user interface of this window.
@@ -881,6 +893,16 @@ namespace WpfImagingDemo
         }
 
         /// <summary>
+        /// Adds image(s) to an image collection of annotation viewer with preview.
+        /// </summary>
+        private void addWithPreviewMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ImagePreviewWindow dlg = new ImagePreviewWindow();
+            dlg.DestImagesManager = _imagesManager;
+            dlg.ShowDialog();
+        }
+
+        /// <summary>
         /// Adds image(s) to the image collection of the image viewer.
         /// </summary>
         private void addMenuItem_Click(object sender, RoutedEventArgs e)
@@ -914,7 +936,10 @@ namespace WpfImagingDemo
         /// </summary>
         private void docxLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            _imageCollectionDocxLayoutSettingsManager.EditLayoutSettingsUseDialog(this);
+#if !REMOVE_OFFICE_PLUGIN
+            DocumentLayoutSettingsDialog dialog = new DocxLayoutSettingsDialog(imageViewer.Images);
+            dialog.ShowDialog();
+#endif
         }
 
         /// <summary>
@@ -922,7 +947,30 @@ namespace WpfImagingDemo
         /// </summary>
         private void xlsxLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            _imageCollectionXlsxLayoutSettingsManager.EditLayoutSettingsUseDialog(this);
+#if !REMOVE_OFFICE_PLUGIN
+            DocumentLayoutSettingsDialog dialog = new XlsxLayoutSettingsDialog(imageViewer.Images);
+            dialog.ShowDialog();
+#endif
+        }
+
+        /// <summary>
+        /// Handles the Click event of htmlLayoutSettingsMenuItem object.
+        /// </summary>
+        private void htmlLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            DocumentLayoutSettingsDialog dialog = new HtmlLayoutSettingsDialog(imageViewer.Images);
+            dialog.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the Click event of emailLayoutSettingsMenuItem object.
+        /// </summary>
+        private void emailLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+#if !REMOVE_EMAIL_CODEC
+            DocumentLayoutSettingsDialog dialog = new EmailLayoutSettingsDialog(imageViewer.Images);
+            dialog.ShowDialog();
+#endif
         }
 
         /// <summary>

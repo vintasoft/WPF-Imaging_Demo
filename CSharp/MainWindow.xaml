@@ -211,9 +211,12 @@
                         <Separator/>
                         <MenuItem Header="Open... (Ctrl+ O)" Name="openMenuItem" Click="openMenuItem_Click"/>
                         <MenuItem Header="Add... (Ctrl+ Shift+ O)" Name="addMenuItem" Click="addMenuItem_Click"/>
+                        <MenuItem Header="Add with Preview..." Click="addWithPreviewMenuItem_Click"/>
                         <MenuItem Header="Layout Settings..." Name="documentLayoutSettingsMenuItem">
                             <MenuItem Header="DOCX..." Name="docxLayoutSettingsMenuItem" Click="docxLayoutSettingsMenuItem_Click"/>
                             <MenuItem Header="XLSX..." Name="xlsxLayoutSettingsMenuItem" Click="xlsxLayoutSettingsMenuItem_Click"/>
+                            <MenuItem Header="HTML..." Name="htmlLayoutSettingsMenuItem" Click="htmlLayoutSettingsMenuItem_Click"/>
+                            <MenuItem Header="Email..." Name="emailLayoutSettingsMenuItem" Click="emailLayoutSettingsMenuItem_Click"/>
                         </MenuItem>
                         <Separator/>
                         <MenuItem Header="Add from Clipboard" Name="addFromClipboardMenuItem" Click="addFromClipboardMenuItem_Click" />
